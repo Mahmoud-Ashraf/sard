@@ -1,7 +1,6 @@
 import { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
-import NotFoundPage from "./Components/NotFoundPage/NotFoundPage";
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 
