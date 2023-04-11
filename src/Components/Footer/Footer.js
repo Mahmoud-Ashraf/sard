@@ -19,6 +19,7 @@ const Footer = () => {
                         <p>اقتصادية</p>
                     </div>
                     <div className="col-auto me-5">
+                        <h5>  </h5>
                         <p>قنية</p>
                         <p>دولي</p>
                         <p>الطفل</p>
@@ -26,6 +27,7 @@ const Footer = () => {
                         <p>صحة</p>
                     </div>
                     <div className="col-auto me-5">
+                        <h5>  </h5>
                         <p>مقالات</p>
                         <p>الفيديو</p>
                         <p>وصـول</p>

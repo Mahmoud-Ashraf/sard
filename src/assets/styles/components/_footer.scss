@@ -1,8 +1,16 @@
-.footer{
+.footer {
     background-color: $main-color;
     color: white;
     padding: 3.5rem 0;
-    &-logo{
+    font-weight: 300;
+    &-logo {
         width: 8.5rem;
     }
+
+    h5 {
+        padding-bottom: 1rem;
+        height: 2.5rem;
+        //edit hight of h5
+    }
+
 }
