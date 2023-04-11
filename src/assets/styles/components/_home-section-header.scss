@@ -16,6 +16,10 @@
             font-size: .8rem;
             color: $main-color;
             text-decoration: none;
+            &:hover, &:active {
+                color: $main-color;
+                text-decoration: underline;
+            }
         }
     }
 }
