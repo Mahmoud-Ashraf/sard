@@ -6,7 +6,6 @@ const LayoutWrapper = () => {
     return (
         <div className="layout-wrapper">
             <Header />
-            Hello
             <Outlet></Outlet>
             <Footer />
         </div>

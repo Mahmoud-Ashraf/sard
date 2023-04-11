@@ -1,0 +1,21 @@
+.home-section {
+    margin-bottom: 1rem;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $main-color;
+        font-weight: bold;
+
+        &-title {
+            font-size: 1.3rem;
+        }
+
+        &-showall {
+            font-size: .8rem;
+            color: $main-color;
+            text-decoration: none;
+        }
+    }
+}
