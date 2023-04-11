@@ -10,7 +10,7 @@ const Footer = () => {
                         <img className='header-middle-logo' src={logo} alt='sard logo' />
                         <p>جميع الحقوق محفوظة, سرد ٢٠٢٣</p>
                     </div>
-                    <div className="col-auto me-5">
+                    <div className="col-auto ms-5">
                         <h5>الاقسام</h5>
                         <p>الرئيسية</p>
                         <p>أحدث الأخبار</p>
@@ -18,7 +18,7 @@ const Footer = () => {
                         <p>محليات</p>
                         <p>اقتصادية</p>
                     </div>
-                    <div className="col-auto me-5">
+                    <div className="col-auto ms-5">
                         <h5>  </h5>
                         <p>قنية</p>
                         <p>دولي</p>
@@ -26,13 +26,13 @@ const Footer = () => {
                         <p>منوعات</p>
                         <p>صحة</p>
                     </div>
-                    <div className="col-auto me-5">
+                    <div className="col-auto ms-5">
                         <h5>  </h5>
                         <p>مقالات</p>
                         <p>الفيديو</p>
                         <p>وصـول</p>
                     </div>
-                    <div className="col-auto me-5">
+                    <div className="col-auto ms-5">
                         <h5>معلومات</h5>
                         <p>أعلن معنا</p>
                         <p>اتصل بنا</p>
