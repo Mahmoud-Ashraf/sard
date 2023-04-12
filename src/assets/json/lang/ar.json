@@ -1,6 +1,8 @@
 {
     "titles": {
-        "happendToday": "حدث اليوم"
+        "happendToday": "حدث اليوم",
+        "urgent":"عاجل",
+        "lastNews":"اخر الأخبار"
     },
     "showAll": "رؤية الكل ◄"
 }

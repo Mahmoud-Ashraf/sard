@@ -1,6 +1,8 @@
 {
     "titles": {
-        "happendToday": "Happend Today"
+        "happendToday": "Happend Today",
+        "urgent":"urgent",
+        "lastNews":"last news"
     },
     "showAll": "Show All ►"
 }
