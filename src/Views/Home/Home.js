@@ -7,7 +7,7 @@ const Home = () => {
         <div className="container">
             <HappenedToDay />
             <UrgentNews />
-            <MainNews />
+            <MainNews newsType="happendToday" />
         </div>
     )
 }

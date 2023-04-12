@@ -1,13 +1,11 @@
 import { useSelector } from "react-redux";
 import HomeSection from "../../UI/HomeSection/HomeSection";
-import { useState } from "react";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 
-const MainNews = () => {
-    const [newsType, setNewsType] = useState('happendToday');
-    const mainNewsArr = useSelector(state => state.news[newsType]);
+const MainNews = (props) => {
+    const mainNewsArr = useSelector(state => state.news[props.newsType]);
     return (
-        <HomeSection title={'titles.' + newsType}>
+        <HomeSection title={'titles.' + props.newsType}>
             <div className="row g-2">
                 <div className="col-lg-7">
                     <NewsBlock />

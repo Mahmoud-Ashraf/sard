@@ -63,6 +63,10 @@ const newsSlice = createSlice({
         },
         twitter(state, action) {
             state.twitter = action.twitter;
+        },
+        customNews(state, action) {
+            const newstType = Object.keys(action)[0];
+            state[newstType] = action[newstType];
         }
     }
 })
