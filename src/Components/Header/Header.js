@@ -1,10 +1,13 @@
+// import { useState } from 'react';
 import {  NavLink } from 'react-router-dom';
 
 const Header = () => {
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
-
+    const date = new Date().toDateString();
+    // const [date,setDate] =useState('');
+    // setDate(new Date().toDateString())
     return (
         <header className="header">
             <div className="header-top text-white">
@@ -14,7 +17,7 @@ const Header = () => {
                         <button className="btn me-3">تسجيل دخول</button>
                     </div>
                     <div className="d-flex justify-content-center align-items-center">
-                        <span>السبت، ١٠ رمضان ١٤٤٤ هجريا ، الموافق ٠١ أبريل ٢٠٢٣ ميلادى</span>
+                        <span>{date}</span>
                         <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                             <i className="col-auto fa-solid fa-sun text-warning"></i>
                             <span className="col-auto"> الرياض</span>
@@ -36,7 +39,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="header-bottom container">
-                <div className='row gx-4 align-items-center justify-content-between'>
+                <div className='row gx-4 align-items-center'>
                     <NavLink to='/home' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
                     <NavLink to='/' activeclassname='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
                     <NavLink to='/' activeclassname='active-link' className='col-auto'>محليات</NavLink>
