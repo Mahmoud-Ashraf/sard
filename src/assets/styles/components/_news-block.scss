@@ -11,7 +11,7 @@
         left: 0;
         bottom: 0;
         right: 0;
-        background-image: linear-gradient(to top, #393939, rgba(30, 30, 30, 0.53) 33%, rgba(0, 0, 0, 0) 54%);
+        background-image: linear-gradient(to top, $dark-gradient-light, rgba($dark-gradient-mid, .53) 33%, rgba($dark-gradient-dark, 0) 54%);
     }
 
     >img {
@@ -27,6 +27,7 @@
         left: 0;
         padding: 1em;
         color: $white;
+        font-weight: bold;
 
         a {
             font-size: 1.7em;
