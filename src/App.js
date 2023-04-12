@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
+import NewsPage from "./Views/NewsPage/NewsPage";
 
 function App() {
   const rootEle = document.getElementById("root-html");
@@ -35,6 +36,10 @@ function App() {
         {
           path: '/home',
           element: <Home />
+        },
+        {
+          path: '/news',
+          element: <NewsPage />
         }
       ],
     },
