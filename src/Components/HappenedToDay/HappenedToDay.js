@@ -14,7 +14,7 @@ const HappenedToDayArr = [
         ]
     },
     {
-        title: "تيست",
+        title: "اختبار عنوان كبير للتجربة",
         attachments: [
             {
                 url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
@@ -27,7 +27,7 @@ const HappenedToDayArr = [
         ]
     },
     {
-        title: "تيست",
+        title: "اختبار عنوان كبير جدا جدا جدا جدا جدا جدا جدا للتجربة والتحقق",
         attachments: [
             {
                 url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
@@ -47,9 +47,9 @@ const HappenedToDay = () => {
                 {
                     HappenedToDayArr.map(post => {
                         return (
-                            <div className="col-2">
+                            <div className="col">
                                 <div className="happened-today-post">
-                                    <img src={post?.attachments?.find(attachment => attachment?.type === 'image')?.url} alt="cover" />
+                                    <img src={post?.attachments?.find(attachment => attachment?.type === 'image')?.url} alt="news cover" />
                                     <h3>{post?.title}</h3>
                                 </div>
                             </div>
