@@ -1,3 +1,6 @@
 {
-    "hello": "مرحبا"
+    "titles": {
+        "happendToday": "حدث اليوم"
+    },
+    "showAll": "رؤية الكل ◄"
 }

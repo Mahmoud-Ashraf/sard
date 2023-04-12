@@ -1,3 +1,6 @@
 {
-    "hello": "Hello"
+    "titles": {
+        "happendToday": "Happend Today"
+    },
+    "showAll": "Show All ►"
 }
