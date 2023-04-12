@@ -1,6 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialNewsState = { latest: [], mostReaded: [], happendToday: [], urgent: [], sports: [], twitter: [] }
+const HappenedToDayArr = [
+    {
+        title: "تيست",
+        attachments: [
+            {
+                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+                type: "video"
+            },
+            {
+                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+                type: "image"
+            }
+        ]
+    },
+    {
+        title: "اختبار عنوان كبير للتجربة",
+        attachments: [
+            {
+                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+                type: "video"
+            },
+            {
+                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+                type: "image"
+            }
+        ]
+    },
+    {
+        title: "اختبار عنوان كبير جدا جدا جدا جدا جدا جدا جدا للتجربة والتحقق",
+        attachments: [
+            {
+                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+                type: "video"
+            },
+            {
+                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+                type: "image"
+            }
+        ]
+    }
+]
+const initialNewsState = { latest: HappenedToDayArr, mostReaded: HappenedToDayArr, happendToday: HappenedToDayArr, urgent: HappenedToDayArr, sports: HappenedToDayArr, twitter: HappenedToDayArr }
 
 const newsSlice = createSlice({
     name: 'lang',

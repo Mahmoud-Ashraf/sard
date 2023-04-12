@@ -1,47 +1,9 @@
 import { Link } from "react-router-dom";
 import HomeSection from "../../UI/HomeSection/HomeSection";
-const HappenedToDayArr = [
-    {
-        title: "تيست",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    },
-    {
-        title: "اختبار عنوان كبير للتجربة",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    },
-    {
-        title: "اختبار عنوان كبير جدا جدا جدا جدا جدا جدا جدا للتجربة والتحقق",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    }
-]
+import { useSelector } from "react-redux";
+
 const HappenedToDay = () => {
+    const HappenedToDayArr = useSelector(state => state.news['happendToday'])
     return (
         <HomeSection title="titles.happendToday" showAll="/">
             <div className="row">
