@@ -1,49 +1,51 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const logo = require('../../assets/images/logo-red.webp');
 
 
 const Footer = () => {
     return (
-        <div className="footer">
+        <footer className="footer">
             <div className="container">
                 <div className="row gx-5">
-                    <div className="col-3 footer-logo">
+                    <div className="col-5 footer-logo">
                         <img className='header-middle-logo' src={logo} alt='sard logo' />
                         <p>جميع الحقوق محفوظة, سرد ٢٠٢٣</p>
                     </div>
-                    <div className="col ms-5 d-flex flex-column">
+                    <div className="col-4">
                         <h5>الاقسام</h5>
-                        <NavLink to='/home'>الرئيسية</NavLink>
-                        <NavLink to='/'>أحدث الأخبار</NavLink>
-                        <NavLink to='/'>تقارير وحوارات</NavLink>
-                        <NavLink to='/'>محليات</NavLink>
-                        <NavLink to='/'>اقتصادية</NavLink>
+                        <div className='row'>
+                            <div className='col d-flex flex-column'>
+                                <Link to='/home'>الرئيسية</Link>
+                                <Link to='/'>أحدث الأخبار</Link>
+                                <Link to='/'>تقارير وحوارات</Link>
+                                <Link to='/'>محليات</Link>
+                                <Link to='/'>اقتصادية</Link>
+                            </div>
+                            <div className='col d-flex flex-column'>
+                                <Link to='/'>قنية</Link>
+                                <Link to='/'>دولي</Link>
+                                <Link to='/'>الطفل</Link>
+                                <Link to='/'>منوعات</Link>
+                                <Link to='/'>صحة</Link>
+                            </div>
+                            <div className='col d-flex flex-column'>
+                                <Link to='/'>مقالات</Link>
+                                <Link to='/'>الفيديو</Link>
+                                <Link to='/'>وصـول</Link>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col ms-5 d-flex flex-column">
-                        <h5>  </h5>
-                        <NavLink to='/'>قنية</NavLink>
-                        <NavLink to='/'>دولي</NavLink>
-                        <NavLink to='/'>الطفل</NavLink>
-                        <NavLink to='/'>منوعات</NavLink>
-                        <NavLink to='/'>صحة</NavLink>
-                    </div>
-                    <div className="col ms-5 d-flex flex-column">
-                        <h5>  </h5>
-                        <NavLink to='/'>مقالات</NavLink>
-                        <NavLink to='/'>الفيديو</NavLink>
-                        <NavLink to='/'>وصـول</NavLink>
-                    </div>
-                    <div className="col ms-5 d-flex flex-column">
+                    <div className="col-2 d-flex flex-column">
                         <h5>معلومات</h5>
-                        <NavLink to='/'>أعلن معنا</NavLink>
-                        <NavLink to='/'>اتصل بنا</NavLink>
-                        <NavLink to='/'>سياسة الخصوصية</NavLink>
-                        <NavLink to='/'>فريق العمل</NavLink>
+                        <Link to='/'>أعلن معنا</Link>
+                        <Link to='/'>اتصل بنا</Link>
+                        <Link to='/'>سياسة الخصوصية</Link>
+                        <Link to='/'>فريق العمل</Link>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 
