@@ -1,11 +1,9 @@
-import HomeSection from "../../UI/HomeSection/HomeSection";
+import HappenedToDay from "../../Components/HappenedToDay/HappenedToDay";
 
 const Home = () => {
     return (
         <div className="container">
-            <HomeSection title="titles.happendToday" showAll="/">
-
-            </HomeSection>
+            <HappenedToDay />
         </div>
     )
 }

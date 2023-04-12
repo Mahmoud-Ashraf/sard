@@ -11,7 +11,7 @@ const useHTTP = () => {
         setIsLoading(true);
         setError(null);
         let baseUrl = process.env.REACT_APP_BASE_URL;
-        let headers = {operator: process.env.REACT_APP_OPERATOR_ID, ...requestConfig.headers};
+        // let headers = {operator: process.env.REACT_APP_OPERATOR_ID, ...requestConfig.headers};
         // console.log(headers);
         try {
             // console.log('fetch start');
@@ -19,7 +19,7 @@ const useHTTP = () => {
                 baseUrl + requestConfig.url,
                 {
                     method: requestConfig.method,
-                    headers: headers,
+                    headers: requestConfig.headers,
                     body: (requestConfig.method === 'POST' && requestConfig.headers && requestConfig.headers['Content-Type'] === 'application/json') ? JSON.stringify(requestConfig.body) : requestConfig.body
                 }
             );

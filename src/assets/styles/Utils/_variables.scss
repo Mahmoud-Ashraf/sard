@@ -1,5 +1,7 @@
-$main-color : #ef3825;
 $white: #FFF;
+$tajawal: "Tajawal";
+
+// Grays
 $gray-100: #f4f4f4;
 $gray-200: #ccc;
 $gray-300: #AAA;
@@ -7,10 +9,12 @@ $gray-400: #999;
 $gray-500: #808080;
 $gray-600: #6e6e6e;
 $gray-700: #464646;
-$gray-800: #333;
-$gray-900: #222;
-$tajawal: "Tajawal";
+$gray-800: #393939;
+$gray-900: #1e1e1e;
+
+$main-color : #ef3825;
 $main-font-family: $tajawal;
 $main-bg: $gray-100;
 $text-color: $gray-500;
 $main-box-bg: $white;
+$main-border-color: $main-color;
