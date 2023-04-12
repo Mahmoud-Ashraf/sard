@@ -1,5 +1,7 @@
 .happened-today-post {
     position: relative;
+    max-height: 13rem;
+    overflow-y: hidden;
 
     img {
         width: 100%;
@@ -11,8 +13,9 @@
         bottom: 0;
         left: 0;
         right: 0;
-        padding: .8rem;
-        font-size: .8rem;
+        padding: .9rem;
+        font-size: .9rem;
         color: $white;
+        font-weight: bold;
     }
 }
