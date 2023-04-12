@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HomeSection from "../../UI/HomeSection/HomeSection";
 const HappenedToDayArr = [
     {
@@ -48,10 +49,12 @@ const HappenedToDay = () => {
                     HappenedToDayArr.map(post => {
                         return (
                             <div className="col">
-                                <div className="happened-today-post">
-                                    <img src={post?.attachments?.find(attachment => attachment?.type === 'image')?.url} alt="news cover" />
-                                    <h3>{post?.title}</h3>
-                                </div>
+                                <Link>
+                                    <div className="happened-today-post">
+                                        <img src={post?.attachments?.find(attachment => attachment?.type === 'image')?.url} alt="news cover" />
+                                        <h3>{post?.title}</h3>
+                                    </div>
+                                </Link>
                             </div>
                         )
                     })
