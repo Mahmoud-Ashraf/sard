@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 const logo = require('../../assets/images/logo-red.webp');
 
 
@@ -10,34 +11,34 @@ const Footer = () => {
                         <img className='header-middle-logo' src={logo} alt='sard logo' />
                         <p>جميع الحقوق محفوظة, سرد ٢٠٢٣</p>
                     </div>
-                    <div className="col-auto ms-5">
+                    <div className="col-auto ms-5 d-flex flex-column">
                         <h5>الاقسام</h5>
-                        <p>الرئيسية</p>
-                        <p>أحدث الأخبار</p>
-                        <p>تقارير وحوارات</p>
-                        <p>محليات</p>
-                        <p>اقتصادية</p>
+                        <NavLink to='/home'>الرئيسية</NavLink>
+                        <NavLink to='/'>أحدث الأخبار</NavLink>
+                        <NavLink to='/'>تقارير وحوارات</NavLink>
+                        <NavLink to='/'>محليات</NavLink>
+                        <NavLink to='/'>اقتصادية</NavLink>
                     </div>
-                    <div className="col-auto ms-5">
+                    <div className="col-auto ms-5 d-flex flex-column">
                         <h5>  </h5>
-                        <p>قنية</p>
-                        <p>دولي</p>
-                        <p>الطفل</p>
-                        <p>منوعات</p>
-                        <p>صحة</p>
+                        <NavLink to='/'>قنية</NavLink>
+                        <NavLink to='/'>دولي</NavLink>
+                        <NavLink to='/'>الطفل</NavLink>
+                        <NavLink to='/'>منوعات</NavLink>
+                        <NavLink to='/'>صحة</NavLink>
                     </div>
-                    <div className="col-auto ms-5">
+                    <div className="col-auto ms-5 d-flex flex-column">
                         <h5>  </h5>
-                        <p>مقالات</p>
-                        <p>الفيديو</p>
-                        <p>وصـول</p>
+                        <NavLink to='/'>مقالات</NavLink>
+                        <NavLink to='/'>الفيديو</NavLink>
+                        <NavLink to='/'>وصـول</NavLink>
                     </div>
-                    <div className="col-auto ms-5">
+                    <div className="col-auto ms-5 d-flex flex-column">
                         <h5>معلومات</h5>
-                        <p>أعلن معنا</p>
-                        <p>اتصل بنا</p>
-                        <p>سياسة الخصوصية</p>
-                        <p>فريق العمل</p>
+                        <NavLink to='/'>أعلن معنا</NavLink>
+                        <NavLink to='/'>اتصل بنا</NavLink>
+                        <NavLink to='/'>سياسة الخصوصية</NavLink>
+                        <NavLink to='/'>فريق العمل</NavLink>
                     </div>
 
                 </div>
