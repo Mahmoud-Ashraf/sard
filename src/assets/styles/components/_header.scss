@@ -34,15 +34,16 @@
         .active{
             color: $main-color;
             font-weight: bolder;
-            position: relative; 
+            border-bottom: 4px solid $main-color;
+            // position: relative; 
         }
-        .active::after{
-            content:"";
-            position: absolute;
-            height: 2px;
-            bottom: -4px;
-            width: 100%;
-            color: $main-color;
-        }
+        // .active::after{
+        //     content:"";
+        //     position: absolute;
+        //     height: 2px;
+        //     bottom: -4px;
+        //     width: 100%;
+        //     color: $main-color;
+        // }
     }
 }
