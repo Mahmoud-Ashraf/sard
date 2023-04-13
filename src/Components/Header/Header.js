@@ -28,7 +28,7 @@ const Header = () => {
 
                 </div>
             </div>
-            <div className="header-middle m-2">
+            <div className="header-middle">
                 <div className='container d-flex justify-content-between'>
                     <img className='header-middle-logo' src={logo} alt='sard logo' />
                     <div className='row gx-4 align-items-center'>
