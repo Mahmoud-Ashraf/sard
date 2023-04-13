@@ -13,7 +13,7 @@
     &-middle {
         padding: 2rem 0;
         background-color: #fff;
-        margin: 1px 0;
+        margin: 3px 0;
         &-logo{
             width: 8.5rem;
         }
@@ -37,10 +37,10 @@
             position: relative; 
         }
         .active::after{
+            content:"";
             position: absolute;
             height: 2px;
             bottom: -4px;
-            content:"";
             width: 100%;
             color: $main-color;
         }
