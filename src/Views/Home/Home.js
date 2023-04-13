@@ -1,13 +1,12 @@
 import HappenedToDay from "../../Components/HappenedToDay/HappenedToDay";
 import MainNews from "../../Components/MainNews/MainNews";
-import UrgentNews from "../../Components/UrgentNews/UrgentNews";
-import News from "../../UI/News/News";
+import New from "../../UI/New/New";
 
 const Home = () => {
     return (
         <div className="container">
             <HappenedToDay />
-            <News/>
+            <New/>
             <MainNews newsType="happendToday" />
         </div>
     )
