@@ -1,4 +1,5 @@
 .header {
+    margin-bottom: 1rem;
     &-top {
         background-color: $main-color;
         padding: 1rem 0;
@@ -23,7 +24,7 @@
     }
     &-bottom{
         background-color: #fff;
-
+        width: 100%;
         a{
             text-decoration: none;
             color: gray;
@@ -32,6 +33,16 @@
             color: $main-color;
         }
         .active-link{
+            color: $main-color;
+            font-weight: bolder;
+            position: relative; 
+        }
+        .active-link::after{
+            position: absolute;
+            height: 2px;
+            bottom: -4px;
+            content:"";
+            width: 100%;
             color: $main-color;
         }
     }

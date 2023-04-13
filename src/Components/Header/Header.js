@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
@@ -6,8 +5,7 @@ const Header = () => {
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
     const date = new Date().toDateString();
-    // const [date,setDate] =useState('');
-    // setDate(new Date().toDateString())
+
     return (
         <header className="header">
             <div className="header-top text-white">
@@ -41,18 +39,18 @@ const Header = () => {
             <div className="header-bottom p-2">
                 <div className='container'>
                     <div className='row gx-4 align-items-center'>
-                        <NavLink to='/home' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>محليات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تقارير وحوارات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اقتصادية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تقنية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>دولي</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>مقالات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>صحة</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>الفيديو</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تويتر</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اخر</NavLink>
+                        <NavLink to='/home' activeClassName='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>أحدث الأخبار</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>محليات</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>تقارير وحوارات</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>اقتصادية</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>تقنية</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>دولي</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>مقالات</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>صحة</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>الفيديو</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>تويتر</NavLink>
+                        <NavLink to='/' activeClassName='active-link' className='col-auto'>اخر</NavLink>
                     </div>
                 </div>
             </div>
