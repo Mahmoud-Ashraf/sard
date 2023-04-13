@@ -1,5 +1,5 @@
 .prayer {
-    margin-top: 1rem;
+    margin: 1rem 0;
 
     &-header {
         color: $main-color;
@@ -9,6 +9,9 @@
     &-content {
         background-color: #fff;
         padding: 1rem 0;
+        &-header{
+            padding: 0 1rem;
+        }
         &-times {
             i {
                 font-size: 2rem;
