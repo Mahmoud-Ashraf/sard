@@ -13,10 +13,9 @@
     &-middle {
         padding: 2rem 0;
         background-color: #fff;
-        margin: 1rem 0;
+        margin: 1px 0;
         &-logo{
             width: 8.5rem;
-            
         }
         &-icons{
             width: 3rem !important;
@@ -32,12 +31,12 @@
         a:hover{
             color: $main-color;
         }
-        .active-link{
+        .active{
             color: $main-color;
             font-weight: bolder;
             position: relative; 
         }
-        .active-link::after{
+        .active::after{
             position: absolute;
             height: 2px;
             bottom: -4px;

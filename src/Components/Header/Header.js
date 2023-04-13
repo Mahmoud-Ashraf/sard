@@ -30,9 +30,12 @@ const Header = () => {
                 <div className='container d-flex justify-content-between'>
                     <img className='header-middle-logo' src={logo} alt='sard logo' />
                     <div className='row gx-4 align-items-center'>
-                        <img className='col-auto header-middle-icons' src={live} alt='live' />
-                        <img className='col-auto header-middle-icons' src={search} alt='serach' />
-
+                        <div className='col-auto'>
+                            <img className='header-middle-icons' src={live} alt='live' />
+                        </div>
+                        <div className='col-auto'>
+                            <img className='header-middle-icons' src={search} alt='serach' />
+                        </div>
                     </div>
                 </div>
             </div>
