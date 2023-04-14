@@ -1,6 +1,6 @@
 import HomeSection from "../../UI/HomeSection/HomeSection";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
-const mainNew = require('../../assets/images/main-news.jpg');
+// const mainNew = require('../../assets/images/main-news.jpg');
 
 const UrgentNews = (props) => {
     return (
