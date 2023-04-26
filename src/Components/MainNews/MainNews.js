@@ -8,14 +8,14 @@ const MainNews = (props) => {
         <HomeSection title={'titles.' + props.newsType}>
             <div className="row g-2">
                 <div className="col-lg-7">
-                    <NewsBlock />
+                    <NewsBlock title="عنوان الخبر" from="منذ 15 ساعة" cover="/assets/images/main-news.jpg" />
                 </div>
                 <div className="col-lg-5">
                     <div className="row g-2">
-                        <div className="col-md-6"><NewsBlock size="sm" /></div>
-                        <div className="col-md-6"><NewsBlock size="sm" /></div>
-                        <div className="col-md-6"><NewsBlock size="sm" /></div>
-                        <div className="col-md-6"><NewsBlock size="sm" /></div>
+                        <div className="col-md-6"><NewsBlock title="عنوان الخبر" from="منذ 15 ساعة" cover="/assets/images/main-news.jpg" size="sm" /></div>
+                        <div className="col-md-6"><NewsBlock title="عنوان الخبر" from="منذ 15 ساعة" cover="/assets/images/main-news.jpg" size="sm" /></div>
+                        <div className="col-md-6"><NewsBlock title="عنوان الخبر" from="منذ 15 ساعة" cover="/assets/images/main-news.jpg" size="sm" /></div>
+                        <div className="col-md-6"><NewsBlock title="عنوان الخبر" from="منذ 15 ساعة" cover="/assets/images/main-news.jpg" size="sm" /></div>
                     </div>
                     
                 </div>

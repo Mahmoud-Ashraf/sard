@@ -8,9 +8,9 @@ const HappenedToDay = () => {
         <HomeSection title="titles.happendToday" showAll="/">
             <div className="row">
                 {
-                    HappenedToDayArr.map(post => {
+                    HappenedToDayArr.map((post, i) => {
                         return (
-                            <div className="col">
+                            <div key={i} className="col">
                                 <Link>
                                     <div className="happened-today-post">
                                         <img src={post?.attachments?.find(attachment => attachment?.type === 'image')?.url} alt="news cover" />
