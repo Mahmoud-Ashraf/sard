@@ -6,7 +6,6 @@ import MainNews from "../../Components/MainNews/MainNews";
 import PrayerTime from "../../Components/PrayerTime/PrayerTime";
 import UrgentNews from "../../Components/UrgentNews/UrgentNews";
 import HomeSection from "../../UI/HomeSection/HomeSection";
-import New from "../../UI/New/New";
 
 const Home = () => {
 
