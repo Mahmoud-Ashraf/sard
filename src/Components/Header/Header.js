@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     const logo = require('../../assets/images/logo-red.webp');
@@ -31,7 +31,9 @@ const Header = () => {
                     <img className='header-middle-logo' src={logo} alt='sard logo' />
                     <div className='row gx-4 align-items-center'>
                         <div className='col-auto'>
+                            <Link to="/">
                             <img className='header-middle-icons' src={live} alt='live' />
+                            </Link>
                         </div>
                         <div className='col-auto'>
                             <img className='header-middle-icons' src={search} alt='serach' />
