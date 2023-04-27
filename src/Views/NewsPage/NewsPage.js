@@ -9,19 +9,43 @@ import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSection
 
 
 const NewsPage = () => {
+    const height = document?.getElementById('col-height2')?.offsetHeight;
+       
+    console.log(height);
+
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-7">
-                    <NewsList />
+                    <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{maxHeight:`${height}px`}}>
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+                        <NewsList />
+
+                    </div>
                 </div>
                 <div className="col-5">
-                    <LatestNews />
-                    <MainBox>
-                        <HomeSectionHeder title="titles.prayerTime" />
-                        <PrayerTime />
-                        <DownloadApp />
-                    </MainBox>
+                    <div id="col-height2">
+                        <LatestNews maxHeight="60rem" />
+                        <MainBox>
+                            <HomeSectionHeder title="titles.prayerTime" />
+                            <PrayerTime />
+                            <DownloadApp />
+                        </MainBox>
+                    </div>
                 </div>
             </div>
         </div>
