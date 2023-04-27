@@ -1,10 +1,33 @@
-.latest-news-main{
-    
-    &-card{
+.latest-news-main {
+    overflow-y: auto;
+    max-height: 24.5rem;
+    overflow-x: hidden;
+
+    &-card-body {
         max-height: 150px;
-        img{
-            height: 8rem;
-            width: 8rem;
+        margin-bottom: 2rem;
+        h6{
+            font-size: 1.35rem;
+        }
+        img {
+            height: 6rem;
+            width: 6rem;
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+   
+    background-color: #f4f4f4;
+}
+
+
+::-webkit-scrollbar-thumb {
+    width: 8px;
+    background-color: $main-color;
 }
