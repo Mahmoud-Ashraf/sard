@@ -1,11 +1,36 @@
 import { Link, NavLink } from 'react-router-dom';
-
+import useHTTP from '../../Hooks/use-http';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 const Header = () => {
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
     const date = new Date().toDateString();
+    const { sendRequest } = useHTTP();
+    const [categories, setCategories] = useState([]);
+    const token = useSelector((state) => {
+        return state.auth.token;
+    })
+    const getCategories = () => {
+        sendRequest(
+            {
+                url: 'get_categories',
+                method: 'GET'
+            },
+            data => {
+                setCategories(data.data);
+            },
+            err => {
+                
+            }
+        )
+    }
 
+    useEffect(() => {
+        getCategories();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [token])
     return (
         <header className="header">
             <div className="header-top text-white">
@@ -32,7 +57,7 @@ const Header = () => {
                     <div className='row gx-4 align-items-center'>
                         <div className='col-auto'>
                             <Link to="/">
-                            <img className='header-middle-icons' src={live} alt='live' />
+                                <img className='header-middle-icons' src={live} alt='live' />
                             </Link>
                         </div>
                         <div className='col-auto'>
@@ -46,7 +71,14 @@ const Header = () => {
                     <div className='row gx-4 align-items-center'>
                         <NavLink to='/home' activeclassname='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>محليات</NavLink>
+                        {
+                            categories.map(category => {
+                                return (
+                                    <NavLink key={category.id} to='/' activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
+                                )
+                            })
+                        }
+                        {/* <NavLink to='/' activeclassname='active-link' className='col-auto'>محليات</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>تقارير وحوارات</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>اقتصادية</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>تقنية</NavLink>
@@ -55,7 +87,7 @@ const Header = () => {
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>صحة</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>الفيديو</NavLink>
                         <NavLink to='/' activeclassname='active-link' className='col-auto'>تويتر</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اخر</NavLink>
+                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اخر</NavLink> */}
                     </div>
                 </div>
             </div>

@@ -18,6 +18,10 @@ function App() {
   const dispatch = useDispatch();
   const { sendRequest } = useHTTP();
   const getGuestToken = () => {
+    if (localStorage.getItem('token')) {
+      dispatch(authActions.setUser({ token: localStorage.getItem('token') }));
+      return null;
+    }
     sendRequest(
       {
         url: 'client/regist_guest',
@@ -27,9 +31,10 @@ function App() {
       data => {
         dispatch(authActions.setUser({ token: data.data.api_token }));
         localStorage.setItem('token', data.data.api_token);
+        return null;
       },
       err => {
-
+        return null;
       }
     )
   }
@@ -48,14 +53,15 @@ function App() {
   }, [globalLang]);
 
   useEffect(() => {
-    getGuestToken();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // getGuestToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <LayoutWrapper />,
+      loader: getGuestToken,
       children: [
         {
           path: '/',
