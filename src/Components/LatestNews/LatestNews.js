@@ -6,8 +6,8 @@ const LatestNews = () => {
         <>
             <HomeSection title="titles.lastNews" showAll="/">
                 <div className="latest-news-main overflow-y-scroll">
-                    <div className="latest-news-main-card mb-3" >
-                        <div className="row g-0">
+                    <div className="latest-news-main-card mb-1" >
+                        <div className="row g-2">
                             <div className="col-md-3">
                                 <img src={ronaldo} className="img-fluid rounded-start" alt="..."/>
                             </div>
@@ -19,8 +19,8 @@ const LatestNews = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="latest-news-main-card mb-3" >
-                        <div className="row g-0">
+                    <div className="latest-news-main-card mb-1" >
+                        <div className="row g-2">
                             <div className="col-md-3">
                                 <img src={ronaldo} className="img-fluid rounded-start" alt="..."/>
                             </div>
@@ -32,8 +32,8 @@ const LatestNews = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="latest-news-main-card mb-3" >
-                        <div className="row g-0">
+                    <div className="latest-news-main-card" >
+                        <div className="row g-2">
                             <div className="col-md-3">
                                 <img src={ronaldo} className="img-fluid rounded-start" alt="..."/>
                             </div>

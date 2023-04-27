@@ -2,7 +2,8 @@
     "titles": {
         "happendToday": "حدث اليوم",
         "urgent":"عاجل",
-        "lastNews":"اخر الأخبار"
+        "lastNews":"اخر الأخبار",
+        "prayerTime":"مواقيت الصلاة"
     },
     "showAll": "رؤية الكل ◄"
 }

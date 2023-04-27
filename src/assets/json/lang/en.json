@@ -2,7 +2,9 @@
     "titles": {
         "happendToday": "Happend Today",
         "urgent":"urgent",
-        "lastNews":"last news"
+        "lastNews":"last news",
+        "prayerTime":"Prayer Time"
+
     },
     "showAll": "Show All ►"
 }
