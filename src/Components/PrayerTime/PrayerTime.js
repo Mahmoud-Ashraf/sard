@@ -6,7 +6,7 @@ const PrayerTime = () => {
 
         <div className="prayer-time">
             <div className="row justify-content-between prayer-time-header">
-                <div className="col-auto">السعودية,
+                <div className="col-auto fw-bold">السعودية,
                     الرياض</div>
                 <div className="col-auto date">8 فبراير
                     2023 ميلادي</div>
