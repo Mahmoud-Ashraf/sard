@@ -1,5 +1,4 @@
-import HomeSection from "../../UI/HomeSection/HomeSection";
-import Advertising from "../Advertising/Advertising";
+
 
 const PrayerTime = () => {
     return (

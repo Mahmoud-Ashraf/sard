@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import HomeSection from "../../UI/HomeSection/HomeSection";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 
 const MainNews = (props) => {
-    const mainNewsArr = useSelector(state => state.news[props.newsType]);
+    // const mainNewsArr = useSelector(state => state.news[props.newsType]);
     return (
         <HomeSection title={'titles.' + props.newsType}>
             <div className="row g-2">

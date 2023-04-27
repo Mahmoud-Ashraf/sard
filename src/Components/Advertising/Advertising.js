@@ -1,4 +1,3 @@
-import HomeSection from "../../UI/HomeSection/HomeSection";
 
 const Advertising = () => {
     
