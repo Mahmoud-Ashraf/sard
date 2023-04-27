@@ -6,16 +6,13 @@ const apps = require('../../assets/images/Apps.webp');
 const DownloadApp = () => {
     return (
         <HomeSection title="">
-
-
-            <div className='d-flex justify-content-between p-3'>
-
-                <div className='d-flex align-items-center'>
+            <div className='apps row'>
+                <div className='col apps-logo d-flex align-items-center justify-content-center'>
                     <img className='header-middle-logo' src={logo} alt='' />
                 </div>
-                <div>
-                    <h4 className='text-center'>قم بتحميل تطبيق سرد الأخبارى الأن</h4>
-                    <img src={apps} alt='' />
+                <div className="col text-center">
+                    <h4>قم بتحميل تطبيق سرد الأخبارى الأن</h4>
+                    <img className="apps-images" src={apps} alt='' />
                 </div>
 
             </div>

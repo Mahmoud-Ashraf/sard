@@ -4,6 +4,8 @@
     }
 
     &-times {
+        overflow-x: auto;
+        flex-wrap: nowrap;
         i {
             font-size: 2rem;
             margin-top: 2.5rem;
