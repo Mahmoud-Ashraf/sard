@@ -1,43 +1,19 @@
 import { Fragment, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
-import useHTTP from "./Hooks/use-http";
-import { authActions } from "./Store/Auth/Auth";
+// import useHTTP from "./Hooks/use-http";
+// import { authActions } from "./Store/Auth/Auth";
 
 function App() {
+  console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
   const rootEle = document.getElementById("root-html");
   const globalLang = useSelector((state) => {
     return state.lang.globalLang;
   });
-  // const token = useSelector(state => {
-  //   return state.auth.token;
-  // });
-  const dispatch = useDispatch();
-  const { sendRequest } = useHTTP();
-  const getGuestToken = () => {
-    if (localStorage.getItem('token')) {
-      dispatch(authActions.setUser({ token: localStorage.getItem('token') }));
-      return null;
-    }
-    sendRequest(
-      {
-        url: 'client/regist_guest',
-        method: 'POST',
-        body: { country_shortcode: 'EG' }
-      },
-      data => {
-        dispatch(authActions.setUser({ token: data.data.api_token }));
-        localStorage.setItem('token', data.data.api_token);
-        return null;
-      },
-      err => {
-        return null;
-      }
-    )
-  }
+
   useEffect(() => {
     if (rootEle) {
       if (globalLang === "ar") {
@@ -52,16 +28,10 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globalLang]);
 
-  useEffect(() => {
-    // getGuestToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const router = createBrowserRouter([
     {
       path: "/",
       element: <LayoutWrapper />,
-      loader: getGuestToken,
       children: [
         {
           path: '/',

@@ -13,18 +13,20 @@ const Header = () => {
         return state.auth.token;
     })
     const getCategories = () => {
-        sendRequest(
-            {
-                url: 'get_categories',
-                method: 'GET'
-            },
-            data => {
-                setCategories(data.data);
-            },
-            err => {
-                
-            }
-        )
+        if (token) {
+            sendRequest(
+                {
+                    url: 'get_categories',
+                    method: 'GET'
+                },
+                data => {
+                    setCategories(data.data);
+                },
+                err => {
+
+                }
+            )
+        }
     }
 
     useEffect(() => {

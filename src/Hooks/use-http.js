@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { modalsActions } from "../store/Modals/Modals";
 
@@ -39,7 +39,7 @@ const useHTTP = () => {
         }
         setIsLoading(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [token]);
     return {
         isLoading,
         error,
