@@ -4,8 +4,6 @@ import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom"
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
-// import useHTTP from "./Hooks/use-http";
-// import { authActions } from "./Store/Auth/Auth";
 
 function App() {
   console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
