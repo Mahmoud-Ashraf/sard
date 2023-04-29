@@ -4,20 +4,24 @@ import PrayerTime from "../../Components/PrayerTime/PrayerTime";
 import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import MainBox from "../../UI/MainBox/MainBox";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
+import { useEffect, useState } from "react";
 
 
 
 
 const NewsPage = () => {
-    const height = document?.getElementById('col-height2')?.offsetHeight;
-       
+    
+    const [height, setHeight] = useState(null);
+    useEffect(()=>{
+        setHeight(document?.getElementById('col-height2')?.offsetHeight);
+    },[])
+    
     console.log(height);
-
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-7">
+                <div className="col-7 g-5">
                     <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{maxHeight:`${height}px`}}>
                         <NewsList />
                         <NewsList />
