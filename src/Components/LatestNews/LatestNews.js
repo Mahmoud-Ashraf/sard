@@ -52,7 +52,7 @@ const LatestNews = (props) => {
                             </div>
                         </div>
                     </div>
-                    S<div className="latest-news-main-card" >
+                    <div className="latest-news-main-card" >
                         <div className="row">
                             <div className="col-md-3">
                                 <img src={ronaldo} alt="..." />
