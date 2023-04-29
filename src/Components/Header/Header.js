@@ -2,6 +2,12 @@ import { Link, NavLink } from 'react-router-dom';
 import useHTTP from '../../Hooks/use-http';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Dropdown from 'react-bootstrap/Dropdown';
+import SearchBar from "../searchBar/searchBar";
+
+
+
+
 const Header = () => {
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
@@ -9,6 +15,7 @@ const Header = () => {
     const date = new Date().toDateString();
     const { sendRequest } = useHTTP();
     const [categories, setCategories] = useState([]);
+
     const token = useSelector((state) => {
         return state.auth.token;
     })
@@ -33,14 +40,26 @@ const Header = () => {
         getCategories();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
+
+
+
     return (
         <header className="header">
             <div className="header-top text-white">
                 <div className="container header-top-content">
-                    <div>
-                        <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
-                        <button className="btn me-3">تسجيل دخول</button>
-                    </div>
+                    <Dropdown>
+                        <Dropdown.Toggle className='text-white' variant="transperent" id="dropdown-basic">
+                            <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
+                            <button className="btn me-3 text-white">مرحباً تامر</button>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">حسابي</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">الاعدادات</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">التنبيهات</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">تسجيل الخروج</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
                     <div className="d-flex justify-content-center align-items-center">
                         <span>{date}</span>
                         <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
@@ -50,7 +69,6 @@ const Header = () => {
 
                         </div>
                     </div>
-
                 </div>
             </div>
             <div className="header-middle">
@@ -68,6 +86,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <SearchBar />
             <div className="header-bottom p-2">
                 <div className='container'>
                     <div className='row gx-4 align-items-center'>
