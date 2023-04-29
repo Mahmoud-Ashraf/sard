@@ -1,3 +1,4 @@
+
 .over-layyer-search-bar{
     background-color: white;
     height: 100vh;
@@ -9,9 +10,11 @@
     z-index: 998;
 }
 .over-layyer-search-bar-content {
-    position: relative;
+    position: fixed;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 999;
-
     &-input {
         background-image: url(../../images/search.webp);
         background-size: 3%;
@@ -24,7 +27,6 @@
         padding-right: 5rem;
         border: 0;
     }
-
     &-exit {
         position: absolute;
         font-weight: bold;

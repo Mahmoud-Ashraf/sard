@@ -9,6 +9,7 @@ import SearchBar from "../searchBar/searchBar";
 
 
 const Header = () => {
+  const country = Intl.DateTimeFormat().resolvedOptions().timeZone
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
@@ -66,7 +67,7 @@ const Header = () => {
                         <span>{date}</span>
                         <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                             <i className="col-auto fa-solid fa-sun text-warning"></i>
-                            <span className="col-auto"> الرياض</span>
+                            <span className="col-auto"> {country}</span>
                             <span className="col-auto">22° </span>
 
                         </div>
