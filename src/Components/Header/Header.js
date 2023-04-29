@@ -40,8 +40,10 @@ const Header = () => {
         getCategories();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
-
-
+    const [isFocus, setIsFocus] = useState(false);
+    const showSearchBar = () => {
+        setIsFocus(current => !current);
+    }
 
     return (
         <header className="header">
@@ -81,12 +83,14 @@ const Header = () => {
                             </Link>
                         </div>
                         <div className='col-auto'>
-                            <img className='header-middle-icons' src={search} alt='serach' />
+                            <img className='header-middle-icons search-img' src={search} alt='serach' onClick={showSearchBar} />
                         </div>
                     </div>
                 </div>
             </div>
-            <SearchBar />
+            <div className={isFocus ?'':'d-none searchBar'}>
+                <SearchBar showSearchBar={showSearchBar}/>
+            </div>
             <div className="header-bottom p-2">
                 <div className='container'>
                     <div className='row gx-4 align-items-center'>
