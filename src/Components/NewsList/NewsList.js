@@ -13,7 +13,7 @@ const NewsList = () => {
     const token = useSelector(state => state.auth.token);
     useEffect(() => {
         getNews();
-    }, [token]);
+    }, [token, categoryId]);
 
     const getNews = () => {
         if (token) {

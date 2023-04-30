@@ -99,11 +99,11 @@ const Header = () => {
                 <div className='container'>
                     <div className='row gx-4 align-items-center'>
                         <NavLink to='/home' activeclassname='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
+                        <NavLink to='/latest' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
                         {
                             categories.map(category => {
                                 return (
-                                    <NavLink key={category.id} to='/' activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
+                                    <NavLink key={category.id} to={'/news/' + category.id} activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
                                 )
                             })
                         }
