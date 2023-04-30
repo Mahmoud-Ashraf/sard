@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import Advertising from "../../Components/Advertising/Advertising";
 import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import HappenedToDay from "../../Components/HappenedToDay/HappenedToDay";
@@ -6,9 +7,27 @@ import MainNews from "../../Components/MainNews/MainNews";
 import PrayerTime from "../../Components/PrayerTime/PrayerTime";
 import UrgentNews from "../../Components/UrgentNews/UrgentNews";
 import HomeSection from "../../UI/HomeSection/HomeSection";
+import { useEffect } from "react";
+import useHTTP from "../../Hooks/use-http";
+import { NewsActions } from "../../Store/News/News";
 
 const Home = () => {
-
+    const categories = useSelector(state => state.news.categories);
+    const { sendRequest } = useHTTP();
+    const dispatch = useDispatch();
+    useEffect(() => {
+        categories.forEach(category => {
+            sendRequest(
+                {
+                    url: `get_home_newss?categories_arr[0]=${category.id}&filter_type=all&paginate=5&page=1`,
+                    method: 'GET'
+                },
+                data => {
+                    dispatch(NewsActions.customNews({ [category.name]: data.data }))
+                }
+            )
+        });
+    }, [categories])
     return (
         <div className="container">
             <HappenedToDay />
@@ -20,7 +39,13 @@ const Home = () => {
                     <LatestNews />
                 </div>
             </div>
-            <MainNews newsType="happendToday" />
+            {
+                categories?.map(category => {
+                    return (
+                        <MainNews key={category.id} category={category} />
+                    )
+                })
+            }
             <Advertising />
             <HomeSection title="titles.prayerTime">
                 <div className="row">

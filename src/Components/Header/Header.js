@@ -1,25 +1,27 @@
 import { Link, NavLink } from 'react-router-dom';
 import useHTTP from '../../Hooks/use-http';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from 'react-bootstrap/Dropdown';
 import SearchBar from "../searchBar/searchBar";
+import { NewsActions } from '../../Store/News/News';
 
 
 
 
 const Header = () => {
-  const country = Intl.DateTimeFormat().resolvedOptions().timeZone
+    const country = Intl.DateTimeFormat().resolvedOptions().timeZone
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
     const date = new Date().toDateString();
     const { sendRequest } = useHTTP();
-    const [categories, setCategories] = useState([]);
-
+    // const [categories, setCategories] = useState([]);
+    const dispatch = useDispatch();
     const token = useSelector((state) => {
         return state.auth.token;
-    })
+    });
+    const categories = useSelector(state => state.news.categories);
     const getCategories = () => {
         if (token) {
             sendRequest(
@@ -28,7 +30,8 @@ const Header = () => {
                     method: 'GET'
                 },
                 data => {
-                    setCategories(data.data);
+                    dispatch(NewsActions.setCategories(data.data));
+                    // setCategories(data.data);
                 },
                 err => {
 
@@ -89,8 +92,8 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className={isFocus ?'':'d-none searchBar'}>
-                <SearchBar showSearchBar={showSearchBar}/>
+            <div className={isFocus ? '' : 'd-none searchBar'}>
+                <SearchBar showSearchBar={showSearchBar} />
             </div>
             <div className="header-bottom p-2">
                 <div className='container'>

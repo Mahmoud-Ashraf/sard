@@ -8,29 +8,35 @@ import { useEffect } from "react";
 const HappenedToDay = () => {
     const dispatch = useDispatch();
     const HappenedToDayArr = useSelector(state => state.news['happendToday']);
-
+    const token = useSelector(state => state.auth.token);
     const { sendRequest } = useHTTP();
 
     const getTrend = () => {
-        sendRequest(
-            {
-                url: 'get_trends',
-                method: 'GET'
-            },
-            data => {
-                dispatch(NewsActions.happendToday(data.data));
-            }
-        )
+        if (token) {
+            sendRequest(
+                {
+                    url: 'get_trends',
+                    method: 'GET'
+                },
+                data => {
+                    dispatch(NewsActions.customNews({ happendToday: data.data }));
+                },
+                err => {
+                    
+                }
+            )
+        }
     }
 
     useEffect(() => {
         getTrend();
-    }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [token]);
     return (
         <HomeSection title="titles.happendToday" showAll="/">
             <div className="row">
                 {
-                    HappenedToDayArr.map((post, i) => {
+                    HappenedToDayArr?.map((post, i) => {
                         return (
                             <div key={i} className="col">
                                 <Link>
