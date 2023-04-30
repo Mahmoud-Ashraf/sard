@@ -1,18 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { authActions } from "../../Store/Auth/Auth";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 
 const LayoutWrapper = () => {
     const dispatch = useDispatch();
-    const { isLoading, error, sendRequest } = useHTTP();
-    const token = useSelector(state => {
-        return state.auth.token;
-    });
+    const { isLoading, sendRequest } = useHTTP();
     const getGuestToken = () => {
         if (localStorage.getItem('token') || localStorage.getItem('user')) {
             if (localStorage.getItem('token')) {

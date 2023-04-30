@@ -15,6 +15,7 @@ const NewsList = () => {
     const token = useSelector(state => state.auth.token);
     useEffect(() => {
         getNews();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, categoryId]);
 
     const getNews = () => {

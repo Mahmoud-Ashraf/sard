@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 const NewsBlock = (props) => {
     const share = require('../../assets/images/share.webp');
-    const logo = require('../../assets/images/logo-red.webp');
     const cover = require('../../assets/images/main-news.jpg');
     const classes = `news-block${props.size ? ' news-block-sm' : ''}`
     console.log(props.singleNews);
