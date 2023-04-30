@@ -5,12 +5,6 @@ import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import MainBox from "../../UI/MainBox/MainBox";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import useHTTP from "../../Hooks/use-http";
-import { useSelector } from "react-redux";
-
-
-
 
 const NewsPage = () => {
     const [height, setHeight] = useState(null);

@@ -19,7 +19,7 @@ const SingleNews = (props) => {
                 <div className="col-8">
                     <div className="single-news-details">
                         <h3>{props.singleNews.title}</h3>
-                        <p>{props.singleNews.content}</p>
+                        <p>{props.singleNews.content.substring(0, 100)} ...</p>
                         <span>{date.toLocaleDateString('ar-EG', options)}</span>
                     </div>
                 </div>

@@ -5,11 +5,12 @@ import { useEffect } from "react";
 import useHTTP from "../../Hooks/use-http";
 import { NewsActions } from "../../Store/News/News";
 import NoData from "../NoData/NoData";
+import Loader from "../Loader/Loader";
 
 const NewsList = () => {
     const { categoryId } = useParams();
     const news = useSelector(state => state.news['category' + categoryId]);
-    const { sendRequest } = useHTTP();
+    const { isLoading, sendRequest } = useHTTP();
     const dispatch = useDispatch();
     const token = useSelector(state => state.auth.token);
     useEffect(() => {
@@ -32,18 +33,17 @@ const NewsList = () => {
         }
     }
     return (
-        <div className="news-list">
-            {
-                news?.length > 0 ?
-                    news?.map(singleNews => {
-                        return (
-                            <SingleNews key={singleNews?.id} singleNews={singleNews} />
-                        )
-                    })
-                    :
-                    <NoData />
-            }
-        </div>
+        isLoading ?
+            <Loader />
+            :
+            <div className="news-list">
+                {
+                    news?.length > 0 ?
+                        news?.map(singleNews => <SingleNews key={singleNews?.id} singleNews={singleNews} />)
+                        :
+                        <NoData />
+                }
+            </div>
     )
 }
 

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { authActions } from "../../Store/Auth/Auth";
 import { Fragment, useEffect } from "react";
+import Loader from "../../Components/Loader/Loader";
 
 const LayoutWrapper = () => {
     const dispatch = useDispatch();
@@ -43,11 +44,14 @@ const LayoutWrapper = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <div className="layout-wrapper">
-            <Header />
-            <Outlet></Outlet>
-            <Footer />
-        </div>
+        isLoading ?
+            <Loader />
+            :
+            <div className="layout-wrapper">
+                <Header />
+                <Outlet></Outlet>
+                <Footer />
+            </div>
     )
 }
 
