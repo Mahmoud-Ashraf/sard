@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom";
 import Home from "./Views/Home/Home";
@@ -26,6 +26,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globalLang]);
 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -40,7 +41,7 @@ function App() {
           element: <Home />
         },
         {
-          path: '/news',
+          path: '/news/:categoryId',
           element: <NewsPage />
         }
       ],

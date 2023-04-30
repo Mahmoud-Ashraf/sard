@@ -1,19 +1,27 @@
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 
-const SingleNews = () => {
+const SingleNews = (props) => {
+    var date = new Date(props.singleNews.created_at);
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    };
+    var dateString = date.toLocaleDateString('ar-SA', options);
     return (
         <div className="single-news">
             <div className="row">
                 <div className="col-4">
                     <div className="single-news-cover">
-                        <NewsBlock size="sm" />
+                        <NewsBlock singleNews={props.singleNews} size="sm" />
                     </div>
                 </div>
                 <div className="col-8">
                     <div className="single-news-details">
-                        <h3>مرشح ثالث لإنقاذ لبنان</h3>
-                        <p>يأتي رمضان وتأتي معه ذكريات أيام خوالي، عاشتها الأحياء والأهالي والمنازل والطرق والدور نهارًا تحت ضوء الشمس أو ليلًا تحت نور القمر.</p>
-                        <span>٠١:٢٨:٠٧ ص، السبت، ١٠ رمضان ١٤٤٤ هجريا، ٠١ أبريل ٢٠٢٣</span>
+                        <h3>{props.singleNews.title}</h3>
+                        <p>{props.singleNews.content}</p>
+                        <span>{dateString}</span>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@ const Home = () => {
                     method: 'GET'
                 },
                 data => {
-                    dispatch(NewsActions.customNews({ [category.name]: data.data }))
+                    dispatch(NewsActions.customNews({ ['category' + category.id]: data.data }));
                 }
             )
         });

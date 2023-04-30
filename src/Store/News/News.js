@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialNewsState = { categories: [] }
 
 const newsSlice = createSlice({
-    name: 'lang',
+    name: 'news',
     initialState: initialNewsState,
     reducers: {
         // latest(state, action) {

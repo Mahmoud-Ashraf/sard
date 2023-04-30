@@ -5,40 +5,26 @@ import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import MainBox from "../../UI/MainBox/MainBox";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import useHTTP from "../../Hooks/use-http";
+import { useSelector } from "react-redux";
 
 
 
 
 const NewsPage = () => {
-    
     const [height, setHeight] = useState(null);
-    useEffect(()=>{
+    useEffect(() => {
         setHeight(document?.getElementById('col-height2')?.offsetHeight);
-    },[])
-    
-    console.log(height);
+    }, []);
+
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-7 g-5">
-                    <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{maxHeight:`${height}px`}}>
+                    <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{ maxHeight: `${height}px` }}>
                         <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-                        <NewsList />
-
                     </div>
                 </div>
                 <div className="col-5">
