@@ -8,7 +8,6 @@ const SingleNews = (props) => {
         month: 'short',
         day: 'numeric',
     };
-    var dateString = date.toLocaleDateString('ar-SA', options);
     return (
         <div className="single-news">
             <div className="row">
@@ -21,7 +20,7 @@ const SingleNews = (props) => {
                     <div className="single-news-details">
                         <h3>{props.singleNews.title}</h3>
                         <p>{props.singleNews.content}</p>
-                        <span>{dateString}</span>
+                        <span>{date.toLocaleDateString('ar-EG', options)}</span>
                     </div>
                 </div>
             </div>
