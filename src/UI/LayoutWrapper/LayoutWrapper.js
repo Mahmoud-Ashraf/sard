@@ -13,9 +13,15 @@ const LayoutWrapper = () => {
         return state.auth.token;
     });
     const getGuestToken = () => {
-        if (localStorage.getItem('token')) {
-            dispatch(authActions.setUser({ token: localStorage.getItem('token') }));
-        } else {
+        if (localStorage.getItem('token') || localStorage.getItem('user')) {
+            if (localStorage.getItem('token')) {
+                dispatch(authActions.setUser({ token: localStorage.getItem('token') }));
+            }
+            if (localStorage.getItem('user')) {
+                dispatch(authActions.setUser({ user: JSON.parse(localStorage.getItem('user')) }));
+            }
+        }
+        else {
             sendRequest(
                 {
                     url: 'client/regist_guest',
@@ -23,8 +29,9 @@ const LayoutWrapper = () => {
                     body: { country_shortcode: 'EG' }
                 },
                 data => {
-                    dispatch(authActions.setUser({ token: data.data.api_token }));
+                    dispatch(authActions.setUser({ token: data.data.api_token, user: data.data }));
                     localStorage.setItem('token', data.data.api_token);
+                    localStorage.setItem('user', JSON.stringify(data.data));
                 },
                 err => {
                 }
