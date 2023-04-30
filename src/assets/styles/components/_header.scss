@@ -12,7 +12,7 @@
 
     &-middle {
         padding: 2rem 0;
-        background-color: #fff;
+        background-color: $white;
         margin: 3px 0;
         &-logo{
             width: 8.5rem;
@@ -22,11 +22,11 @@
         }
     }
     &-bottom{
-        background-color: #fff;
+        background-color: $white;
         width: 100%;
         a{
             text-decoration: none;
-            color: gray;
+            color: $text-color;
         }
         a:hover{
             color: $main-color;
@@ -50,4 +50,13 @@
 }
 .search-img{
     cursor: pointer;
+}
+.actions{
+    color: $text-color;
+    span{
+        font-size: .8rem;
+    }
+    .icon-danger{
+        color: $main-color;
+    }
 }

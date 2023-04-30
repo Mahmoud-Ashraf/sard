@@ -1,5 +1,4 @@
-
-.over-layyer-search-bar{
+.over-layyer-search-bar {
     background-color: white;
     height: 100vh;
     width: 100vw;
@@ -9,12 +8,14 @@
     opacity: .9;
     z-index: 998;
 }
+
 .over-layyer-search-bar-content {
     position: fixed;
     top: 23%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
+
     &-input {
         background-image: url(../../images/search.webp);
         background-size: 3%;
@@ -26,7 +27,9 @@
         padding: 2rem;
         padding-right: 5rem;
         border: 0;
+        border: 2px solid $main-color;
     }
+
     &-exit {
         position: absolute;
         font-weight: bold;
@@ -41,5 +44,5 @@
 .over-layyer-search-bar-content-input:focus {
     border: 2px solid $main-color;
     outline: $main-color ;
-    
+
 }

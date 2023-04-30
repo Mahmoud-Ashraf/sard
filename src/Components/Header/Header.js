@@ -5,23 +5,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from 'react-bootstrap/Dropdown';
 import SearchBar from "../searchBar/searchBar";
 import { NewsActions } from '../../Store/News/News';
+// import { authActions} from '../../Store/Auth/Auth'
 import Loader from '../Loader/Loader';
 
 
 
 
 const Header = () => {
-    const country = Intl.DateTimeFormat().resolvedOptions().timeZone
+    const userCountry = useSelector((state) => {
+        return state.auth.user?.country?.name_ar;
+    });
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
     const search = require('../../assets/images/search.webp');
-    const date = new Date().toDateString();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    };
+    const date = new Date().toLocaleDateString('ar-EG', options);
     const { isLoading, sendRequest } = useHTTP();
     // const [categories, setCategories] = useState([]);
     const dispatch = useDispatch();
     const token = useSelector((state) => {
         return state.auth.token;
     });
+
+
     const categories = useSelector(state => state.news.categories);
     const getCategories = () => {
         if (token) {
@@ -60,13 +71,35 @@ const Header = () => {
                         <Dropdown>
                             <Dropdown.Toggle className='text-white' variant="transperent" id="dropdown-basic">
                                 <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
-                                <button className="btn me-3 text-white">مرحباً تامر</button>
+                                <span className="btn me-3 text-white">مرحباً تامر</span>
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">حسابي</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">الاعدادات</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">التنبيهات</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">تسجيل الخروج</Dropdown.Item>
+                                <Dropdown.Item href="#/action-1" className='actions d-flex justify-content-between m-1'>
+                                    <span>
+                                        حسابي
+                                    </span>
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" className='actions d-flex justify-content-between m-1'>
+                                    <span>
+                                        الاعدادات
+                                    </span>
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-3" className='actions d-flex justify-content-between m-1'>
+                                    <span>
+                                        التنبيهات
+                                    </span>
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </Dropdown.Item>
+                                <br/>
+                                <hr/>
+                                <Dropdown.Item href="#/action-4" className='actions d-flex justify-content-between mt-2'>
+                                    <span>
+                                        تسجيل الخروج
+                                    </span>
+                                    <i class="fa-solid fa-circle-chevron-right icon-danger"></i>
+                                </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
 
@@ -74,7 +107,7 @@ const Header = () => {
                             <span>{date}</span>
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>
-                                <span className="col-auto"> {country}</span>
+                                <span className="col-auto"> {userCountry}</span>
                                 <span className="col-auto">22° </span>
 
                             </div>
