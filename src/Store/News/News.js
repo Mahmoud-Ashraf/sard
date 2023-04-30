@@ -1,68 +1,68 @@
 import { createSlice } from '@reduxjs/toolkit';
-const HappenedToDayArr = [
-    {
-        title: "تيست",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    },
-    {
-        title: "اختبار عنوان كبير للتجربة",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    },
-    {
-        title: "اختبار عنوان كبير جدا جدا جدا جدا جدا جدا جدا للتجربة والتحقق",
-        attachments: [
-            {
-                url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
-                type: "video"
-            },
-            {
-                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-                type: "image"
-            }
-        ]
-    }
-]
-const initialNewsState = { latest: HappenedToDayArr, mostReaded: HappenedToDayArr, happendToday: HappenedToDayArr, urgent: HappenedToDayArr, sports: HappenedToDayArr, twitter: HappenedToDayArr }
+// const [] = [
+// {
+//     title: "تيست",
+//     attachments: [
+//         {
+//             url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+//             type: "video"
+//         },
+//         {
+//             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+//             type: "image"
+//         }
+//     ]
+// },
+// {
+//     title: "اختبار عنوان كبير للتجربة",
+//     attachments: [
+//         {
+//             url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+//             type: "video"
+//         },
+//         {
+//             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+//             type: "image"
+//         }
+//     ]
+// },
+// {
+//     title: "اختبار عنوان كبير جدا جدا جدا جدا جدا جدا جدا للتجربة والتحقق",
+//     attachments: [
+//         {
+//             url: "https://www.youtube.com/watch?v=EsGkXt6nneE",
+//             type: "video"
+//         },
+//         {
+//             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+//             type: "image"
+//         }
+//     ]
+// }
+// ]
+const initialNewsState = { latest: [], mostReaded: [], happendToday: [], urgent: [], sports: [], twitter: [] }
 
 const newsSlice = createSlice({
     name: 'lang',
     initialState: initialNewsState,
     reducers: {
         latest(state, action) {
-            state.latest = action.payload.latest;
+            state.latest = action.payload;
         },
         mostReaded(state, action) {
-            state.mostReaded = action.mostReaded;
+            state.mostReaded = action.payload;
         },
         happendToday(state, action) {
-            state.happendToday = action.happendToday;
+            state.happendToday = action.payload;
         },
         urgent(state, action) {
-            state.urgent = action.urgent;
+            state.urgent = action.payload;
         },
         sports(state, action) {
-            state.sports = action.sports;
+            state.sports = action.payload;
         },
         twitter(state, action) {
-            state.twitter = action.twitter;
+            state.twitter = action.payload;
         },
         customNews(state, action) {
             const newstType = Object.keys(action)[0];
