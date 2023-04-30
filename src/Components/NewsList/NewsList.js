@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import SingleNews from "../SingleNews/SingleNews";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useHTTP from "../../Hooks/use-http";
 import { NewsActions } from "../../Store/News/News";
 import NoData from "../NoData/NoData";
@@ -9,14 +9,19 @@ import Loader from "../Loader/Loader";
 
 const NewsList = () => {
     const { categoryId } = useParams();
-    const news = useSelector(state => state.news['category' + categoryId]);
+    const newsStore = useSelector(state => state.news['category' + categoryId]);
     const { isLoading, sendRequest } = useHTTP();
     const dispatch = useDispatch();
     const token = useSelector(state => state.auth.token);
+    const [news, setNews] = useState(newsStore);
     useEffect(() => {
         getNews();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, categoryId]);
+
+    useEffect(() => {
+        setNews(newsStore);
+    }, [newsStore])
 
     const getNews = () => {
         if (token) {
