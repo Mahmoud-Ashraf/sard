@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import useHTTP from "../../Hooks/use-http";
 import { NewsActions } from "../../Store/News/News";
+import NoData from "../NoData/NoData";
 
 const NewsList = () => {
     const { categoryId } = useParams();
@@ -33,11 +34,14 @@ const NewsList = () => {
     return (
         <div className="news-list">
             {
-                news?.map(singleNews => {
-                    return (
-                        <SingleNews key={singleNews.id} singleNews={singleNews} />
-                    )
-                })
+                news?.length > 0 ?
+                    news?.map(singleNews => {
+                        return (
+                            <SingleNews key={singleNews?.id} singleNews={singleNews} />
+                        )
+                    })
+                    :
+                    <NoData />
             }
         </div>
     )
