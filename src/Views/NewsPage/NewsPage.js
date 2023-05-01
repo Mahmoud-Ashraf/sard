@@ -5,6 +5,7 @@ import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import MainBox from "../../UI/MainBox/MainBox";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const NewsPage = () => {
     const [height, setHeight] = useState(null);
@@ -18,7 +19,7 @@ const NewsPage = () => {
             <div className="row">
                 <div className="col-7 g-5">
                     <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{ maxHeight: `${height}px` }}>
-                        <NewsList />
+                        <Outlet></Outlet>
                     </div>
                 </div>
                 <div className="col-5">

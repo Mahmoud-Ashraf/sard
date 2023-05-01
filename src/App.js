@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom"
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
+import NewsList from "./Components/NewsList/NewsList";
 
 function App() {
   console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -41,8 +42,14 @@ function App() {
           element: <Home />
         },
         {
-          path: '/news/:categoryId',
-          element: <NewsPage />
+          path: '/news',
+          element: <NewsPage />,
+          children: [
+            {
+              path: ':categoryId',
+              element: <NewsList />
+            }
+          ]
         }
       ],
     },
