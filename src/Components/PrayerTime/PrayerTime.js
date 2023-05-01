@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 
 const PrayerTime = () => {
+    const long = useSelector(state => state.auth.long);
+    const lat = useSelector(state => state.auth.lat);
+    const todayDate = new Date();
+    const [prayerTimes, setPryerTimes] = useState({});
+    // const formattedTodayDate = todayDate.getDate() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getFullYear();
+    const getPrayerTimes = () => {
+        if (lat && long && todayDate) {
+            fetch(`https://api.aladhan.com/v1/timings/${todayDate}?latitude=${lat}&longitude=${long}&method=2`, { mehtod: 'GET', })
+                .then(res => res.json())
+                .then(data => {
+                    setPryerTimes(data.data.timings);
+                });
+        }
+    }
+
+    useEffect(() => {
+        getPrayerTimes();
+    }, [long, lat])
     return (
 
 
@@ -15,33 +35,33 @@ const PrayerTime = () => {
                 <div className="col">
                     <i className="fa-solid fa-moon"></i>
                     <h5>الفجْر</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Fajr}</p>
                 </div>
                 <div className="col">
                     <i className="fa-solid fa-sun sun"></i>
                     <h5>الشروق</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Sunrise}</p>
                 </div>
                 <div className="col">
                     <i className="fa-solid fa-sun sun"></i>
                     <h5>الظُّهْر</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Dhuhr}</p>
                 </div>
                 <div className="col">
                     <i className="fa-solid fa-sun sun"></i>
                     <h5>العَصر</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Asr}</p>
 
                 </div>
                 <div className="col">
                     <i className="fa-solid fa-cloud-sun sun"></i>
                     <h5>المَغرب</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Maghrib}</p>
                 </div>
                 <div className="col">
                     <i className="fa-solid fa-moon"></i>
                     <h5>العِشاء</h5>
-                    <p>٥:١٢ ص</p>
+                    <p>{prayerTimes?.Isha}</p>
                 </div>
             </div>
         </div>
