@@ -144,16 +144,6 @@ const Header = () => {
                                     )
                                 })
                             }
-                            {/* <NavLink to='/' activeclassname='active-link' className='col-auto'>محليات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تقارير وحوارات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اقتصادية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تقنية</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>دولي</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>مقالات</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>صحة</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>الفيديو</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>تويتر</NavLink>
-                        <NavLink to='/' activeclassname='active-link' className='col-auto'>اخر</NavLink> */}
                         </div>
                     </div>
                 </div>
