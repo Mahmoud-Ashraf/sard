@@ -11,13 +11,8 @@ const LayoutWrapper = () => {
     const dispatch = useDispatch();
     const { isLoading, sendRequest } = useHTTP();
     const getGuestToken = () => {
-        if (localStorage.getItem('token') || localStorage.getItem('user')) {
-            if (localStorage.getItem('token')) {
-                dispatch(authActions.setUser({ token: localStorage.getItem('token') }));
-            }
-            if (localStorage.getItem('user')) {
-                dispatch(authActions.setUser({ user: JSON.parse(localStorage.getItem('user')) }));
-            }
+        if (localStorage.getItem('token') && localStorage.getItem('user')) {
+            dispatch(authActions.setUser({ token: localStorage.getItem('token'), user: JSON.parse(localStorage.getItem('user')) }));
         }
         else {
             sendRequest(
