@@ -46,6 +46,7 @@ const LayoutWrapper = () => {
     }, []);
     useEffect(() => {
         getGuestToken();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryCode])
     return (
         isLoading ?

@@ -1,4 +1,3 @@
-import NewsList from "../../Components/NewsList/NewsList";
 import LatestNews from "../../Components/LatestNews/LatestNews";
 import PrayerTime from "../../Components/PrayerTime/PrayerTime";
 import DownloadApp from "../../Components/DownloadApp/DownloadApp";
