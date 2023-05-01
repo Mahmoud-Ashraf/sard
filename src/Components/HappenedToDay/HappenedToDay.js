@@ -5,6 +5,7 @@ import useHTTP from "../../Hooks/use-http";
 import { NewsActions } from "../../Store/News/News";
 import { useEffect } from "react";
 import Loader from "../Loader/Loader";
+// import NoData from "../NoData/NoData";
 
 const HappenedToDay = () => {
     const dispatch = useDispatch();
@@ -37,24 +38,28 @@ const HappenedToDay = () => {
         isLoading ?
             <Loader />
             :
-            <HomeSection title="titles.happendToday" showAll="/">
-                <div className="row">
-                    {
-                        HappenedToDayArr?.map((post, i) => {
-                            return (
-                                <div key={i} className="col">
-                                    <Link>
-                                        <div className="happened-today-post">
-                                            <img src={post?.image} alt="news cover" />
-                                            <h3>{post?.title_ar}</h3>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </HomeSection>
+            HappenedToDayArr.length > 0 ?
+                <HomeSection title="titles.happendToday" showAll="/">
+                    <div className="row">
+                        {
+                            HappenedToDayArr?.map((post, i) => {
+                                return (
+                                    <div key={i} className="col">
+                                        <Link>
+                                            <div className="happened-today-post">
+                                                <img src={post?.image} alt="news cover" />
+                                                <h3>{post?.title_ar}</h3>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </HomeSection>
+                :
+                <div />
+
     )
 }
 
