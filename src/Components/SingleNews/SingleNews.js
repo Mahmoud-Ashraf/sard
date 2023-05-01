@@ -3,7 +3,6 @@ import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 const SingleNews = (props) => {
     var date = new Date(props.singleNews.created_at);
     const options = {
-        weekday: 'long',
         year: 'numeric',
         month: 'short',
         day: 'numeric',
@@ -20,7 +19,7 @@ const SingleNews = (props) => {
                     <div className="single-news-details">
                         <h3>{props.singleNews.title}</h3>
                         <p>{props.singleNews.content.substring(0, 100)} ...</p>
-                        <span>{date.toLocaleDateString('ar-EG', options)}</span>
+                        <span>{date.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + ' هجريا,' + date.toLocaleDateString('ar-EG', options)}</span>
                     </div>
                 </div>
             </div>
