@@ -5,6 +5,7 @@ import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
 import NewsList from "./Components/NewsList/NewsList";
+import NewsDetails from "./Components/NewsDetails/NewsDetails";
 
 function App() {
   console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -48,6 +49,10 @@ function App() {
             {
               path: ':categoryId',
               element: <NewsList />
+            },
+            {
+              path: 'details/:newsId',
+              element: <NewsDetails />
             }
           ]
         }
