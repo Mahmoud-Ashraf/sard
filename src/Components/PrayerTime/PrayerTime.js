@@ -10,7 +10,7 @@ const PrayerTime = () => {
     // const formattedTodayDate = todayDate.getDate() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getFullYear();
     const getPrayerTimes = () => {
         if (lat && long && todayDate) {
-            fetch(`https://api.aladhan.com/v1/timings/${todayDate}?latitude=${lat}&longitude=${long}&method=2`, { mehtod: 'GET', })
+            fetch(`https://api.aladhan.com/v1/timings/${todayDate}?latitude=${lat}&longitude=${long}&method=4`, { mehtod: 'GET', })
                 .then(res => res.json())
                 .then(data => {
                     setPryerTimes(data.data.timings);
