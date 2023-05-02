@@ -1,9 +1,41 @@
+import useHTTP from "../../Hooks/use-http";
 import HomeSection from "../../UI/HomeSection/HomeSection";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
-// const mainNew = require('../../assets/images/main-news.jpg');
+import { useDispatch, useSelector } from 'react-redux';
+import { NewsActions } from '../../Store/News/News';
+import Loader from '../Loader/Loader';
+import { useEffect } from 'react';
+
 
 const UrgentNews = (props) => {
+    const { isLoading, sendRequest } = useHTTP();
+    const dispatch = useDispatch();
+    const token = useSelector((state) => {
+        return state.auth.token;
+    });
+    const getUrgentNews = (filterType) => {
+        if (token) {
+            sendRequest(
+                {
+                    url: `get_home_newss?filter_type=${filterType}&paginate=10&page=1`,
+                    method: 'GET'
+                },
+                data => {
+                    dispatch(NewsActions.getUrgentNews(data.data));
+                },
+                err => {
+
+                }
+            )
+        }
+    }
+    useEffect(() => {
+        getUrgentNews();
+    }, [token])
     return (
+        isLoading ?
+            <Loader />
+            :
         <HomeSection title="titles.urgent" showAll="/">
             {/* <div className="urgent-news-main-header">
                 <img alt="" src={mainNew} />
