@@ -7,19 +7,19 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const NewsPage = () => {
-    const [height, setHeight] = useState(null);
-    useEffect(() => {
-        setHeight(document?.getElementById('col-height2')?.offsetHeight);
-    }, []);
+    // const [height, setHeight] = useState(null);
+    // useEffect(() => {
+    //     setHeight(document?.getElementById('col-height2')?.offsetHeight);
+    // }, []);
 
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-7 g-5">
+                <div className="col-lg-7">
                     <Outlet></Outlet>
                 </div>
-                <div className="col-5">
+                <div className="col-lg-5">
                     <LatestNews maxHeight="60rem" />
                     <MainBox>
                         <HomeSectionHeder title="titles.prayerTime" />

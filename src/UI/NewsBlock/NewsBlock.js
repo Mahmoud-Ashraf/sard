@@ -24,7 +24,7 @@ const NewsBlock = (props) => {
         <div className={classes}>
             <img src={cover} alt="cover" />
             <div className="news-block-caption">
-                <Link to={`/news/details/${props?.singleNews?.id}`}>{props?.singleNews?.title || props?.singleNews?.content?.split(' ', 5).join(' ')}</Link>
+                <Link to={`/news/details/${props?.singleNews?.id}`}>{props?.singleNews?.title || props?.singleNews?.content?.split(' ', 10).join(' ')}</Link>
                 <span>{props.singleNews?.created_from}</span>
             </div>
             <div className="news-block-share">
