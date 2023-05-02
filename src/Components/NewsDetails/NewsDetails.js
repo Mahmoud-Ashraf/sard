@@ -27,7 +27,6 @@ const NewsDetails = () => {
     // console.log(new Intl.DateTimeFormat('ar-EG', { dateStyle: 'full', timeStyle: 'long' }).format(date));
 
     const getNews = () => {
-        console.log(newsId)
         if (token) {
             sendRequest(
                 {

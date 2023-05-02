@@ -5,10 +5,8 @@ const NewsBlock = (props) => {
     const share = require('../../assets/images/share.webp');
     const classes = `news-block${props.size ? ' news-block-sm' : ''}`
     const [cover, setCover] = useState('');
-    console.log(props.singleNews);
     const getCover = () => {
         const attCovers = props.singleNews?.attachments?.filter(attachment => attachment.type === 'photo');
-        console.log(attCovers);
         if (props.singleNews?.images_url?.length > 0) {
             setCover(props.singleNews?.images_url[0]?.url);
         } else if (attCovers && attCovers.length > 0) {
