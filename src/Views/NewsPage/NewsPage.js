@@ -17,19 +17,15 @@ const NewsPage = () => {
         <div className="container">
             <div className="row">
                 <div className="col-7 g-5">
-                    <div id="col-height1" className="overflow-y-auto overflow-x-hidden" style={{ maxHeight: `${height}px` }}>
-                        <Outlet></Outlet>
-                    </div>
+                    <Outlet></Outlet>
                 </div>
                 <div className="col-5">
-                    <div id="col-height2">
-                        <LatestNews maxHeight="60rem" />
-                        <MainBox>
-                            <HomeSectionHeder title="titles.prayerTime" />
-                            <PrayerTime />
-                            <DownloadApp />
-                        </MainBox>
-                    </div>
+                    <LatestNews maxHeight="60rem" />
+                    <MainBox>
+                        <HomeSectionHeder title="titles.prayerTime" />
+                        <PrayerTime />
+                        <DownloadApp />
+                    </MainBox>
                 </div>
             </div>
         </div>
