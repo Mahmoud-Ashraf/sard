@@ -1,18 +1,16 @@
 import useHTTP from "../../Hooks/use-http";
 import HomeSection from "../../UI/HomeSection/HomeSection";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NewsActions } from '../../Store/News/News';
 import Loader from '../Loader/Loader';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const UrgentNews = (props) => {
     const { isLoading, sendRequest } = useHTTP();
-    const dispatch = useDispatch();
-    const token = useSelector((state) => {
-        return state.auth.token;
-    });
+    const token = useSelector(state => state.auth.token);
+    const [urgentNews, seturgentNews] = useState([]);
     const getUrgentNews = (filterType) => {
         if (token) {
             sendRequest(
@@ -21,7 +19,7 @@ const UrgentNews = (props) => {
                     method: 'GET'
                 },
                 data => {
-                    dispatch(NewsActions.getUrgentNews(data.data));
+                    seturgentNews(data.data);
                 },
                 err => {
 
@@ -29,6 +27,8 @@ const UrgentNews = (props) => {
             )
         }
     }
+    console.log(urgentNews)
+
     useEffect(() => {
         getUrgentNews();
     }, [token])
