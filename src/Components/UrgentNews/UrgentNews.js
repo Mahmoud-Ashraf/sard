@@ -11,15 +11,16 @@ const UrgentNews = (props) => {
     const { isLoading, sendRequest } = useHTTP();
     const token = useSelector(state => state.auth.token);
     const [urgentNews, seturgentNews] = useState([]);
-    const getUrgentNews = (filterType) => {
+    const getUrgentNews = () => {
         if (token) {
             sendRequest(
                 {
-                    url: `get_home_newss?filter_type=${filterType}&paginate=10&page=1`,
+                    url: `get_home_newss?filter_type=urgent&paginate=10&page=1`,
                     method: 'GET'
                 },
                 data => {
                     seturgentNews(data.data);
+
                 },
                 err => {
 
@@ -27,54 +28,55 @@ const UrgentNews = (props) => {
             )
         }
     }
-    console.log(urgentNews)
 
     useEffect(() => {
         getUrgentNews();
     }, [token])
+
+
     return (
         isLoading ?
             <Loader />
             :
-        <HomeSection title="titles.urgent" showAll="/">
-            {/* <div className="urgent-news-main-header">
+            <HomeSection title="titles.urgent" showAll="/">
+                {/* <div className="urgent-news-main-header">
                 <img alt="" src={mainNew} />
             </div> */}
-            <div id="carouselExampleCaptions" className="carousel slide">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                    <NewsBlock />
+                <div id="carouselExampleCaptions" className="carousel slide">
+                    <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div className="carousel-item">
-                        <img src="..." className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <NewsBlock />
+                        </div>
+                        <div className="carousel-item">
+                            <img src="..." className="d-block w-100" alt="..." />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div className="carousel-item">
+                            <img src="..." className="d-block w-100" alt="..." />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="carousel-item">
-                        <img src="..." className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
-        </HomeSection>
+            </HomeSection>
 
     )
 }
