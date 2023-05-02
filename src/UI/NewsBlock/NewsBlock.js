@@ -10,7 +10,7 @@ const NewsBlock = (props) => {
         const attCovers = props.singleNews?.attachments?.filter(attachment => attachment.type === 'photo');
         console.log(attCovers);
         if (props.singleNews?.images_url?.length > 0) {
-            setCover(props.singleNews?.images_url[0]);
+            setCover(props.singleNews?.images_url[0]?.url);
         } else if (attCovers && attCovers.length > 0) {
             setCover(attCovers[0].url);
         } else {
