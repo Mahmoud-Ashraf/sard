@@ -1,3 +1,49 @@
+ul.nav-tabs {
+    padding: 0;
+    border: 0;
+
+    .nav-item {
+        .nav-link {
+            font-size: 1.25rem;
+            padding: 0rem 1.5rem;
+            border: none;
+            border-bottom: 5px solid $text-color;
+            color: $text-color;
+            line-height: 1;
+            padding-bottom: .2rem;
+
+            &.active {
+                background-color: transparent;
+                color: $main-color;
+                font-weight: bold;
+                border-bottom-color: $main-color;
+            }
+        }
+    }
+}
+
+.tab-content {
+    background-color: $white;
+    padding: 1rem;
+
+    .tab-pane {
+        max-height: 24.3rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+.tabs-section {
+    position: relative;
+    &-header-showall {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        font-weight: bold;
+    }
+}
+
 .latest-news-main {
     overflow-y: auto;
     max-height: 24.5rem;

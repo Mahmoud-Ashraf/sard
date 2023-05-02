@@ -3,7 +3,9 @@
         "happendToday": "Happend Today",
         "urgent": "urgent",
         "lastNews": "last news",
-        "prayerTime": "Prayer Time"
+        "prayerTime": "Prayer Time",
+        "newest": "Latest News",
+        "most_readed": "Most Readed"
     },
     "searchBar": {
         "placeholder": "Search News"

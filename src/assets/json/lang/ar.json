@@ -3,7 +3,9 @@
         "happendToday": "حدث اليوم",
         "urgent": "عاجل",
         "lastNews": "اخر الأخبار",
-        "prayerTime": "مواقيت الصلاة"
+        "prayerTime": "مواقيت الصلاة",
+        "newest": "اخر الأخبار",
+        "most_readed": "الأكثر قراءة"
     },
     "searchBar": {
         "placeholder": "ابحث عن الخبر"
