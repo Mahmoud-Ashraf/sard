@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { NewsActions } from "../../Store/News/News";
 import Loader from "../Loader/Loader";
 import NewsList from "../NewsList/NewsList";
 import { useDispatch, useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { useParams } from "react-router-dom";
+import Translate from "../../helpers/Translate/Translate";
 
 const NewsSection = () => {
     const { categoryId } = useParams();
@@ -12,24 +13,43 @@ const NewsSection = () => {
     const { isLoading, sendRequest } = useHTTP();
     const dispatch = useDispatch();
     const token = useSelector(state => state.auth.token);
-    const [news, setNews] = useState(newsStore);
+    const [news, setNews] = useState([]);
+    const [page, setPage] = useState(1);
+    const [nextPage, setNextPage] = useState(1);
+    const [showLoader, setShowLoader] = useState(false);
     useEffect(() => {
-        getNews();
+        setShowLoader(true);
+        dispatch(NewsActions.customNews({ ['category' + categoryId]: [] }));
+        getNews(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, categoryId]);
+    useEffect(() => {
+        if (page > 1) {
+            getNews(page);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [page]);
 
     useEffect(() => {
         setNews(newsStore);
     }, [newsStore])
 
-    const getNews = () => {
+    const getNews = (currentPage) => {
         if (token) {
             sendRequest(
                 {
-                    url: `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=1&paginate=10`
+                    url: `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=${currentPage}&paginate=10`
                 },
                 data => {
-                    dispatch(NewsActions.customNews({ ['category' + categoryId]: data.data }));
+                    const newData = data.data;
+                    // setNews([...news, ...newData]);
+                    setNextPage(data.pagination.next_page);
+                    if (data.pagination.current_page === 1) {
+                        dispatch(NewsActions.customNews({ ['category' + categoryId]: [...newData] }));
+                    } else {
+                        dispatch(NewsActions.customNews({ ['category' + categoryId]: [...news, ...newData] }));
+                    }
+                    setShowLoader(false);
                 },
                 err => {
 
@@ -39,10 +59,15 @@ const NewsSection = () => {
     }
 
     return (
-        isLoading ?
+        showLoader ?
             <Loader />
             :
-            <NewsList news={news} />
+            <Fragment>
+                <NewsList news={news} />
+                {news.length > 0 && <div className="show-more text-center mt-4">
+                    <button className="btn btn-danger" disabled={!nextPage || isLoading} onClick={() => setPage(nextPage)}><Translate id="buttons.showMore" /> {isLoading && <i className="fa-solid fa-spinner fa-spin"></i>}</button>
+                </div>}
+            </Fragment>
     )
 }
 export default NewsSection;

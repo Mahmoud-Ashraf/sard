@@ -9,7 +9,8 @@
         "placeholder": "ابحث عن الخبر"
     },
     "buttons": {
-        "cancel": "إلغاء"
+        "cancel": "إلغاء",
+        "showMore": "عرض المزيد"
     },
     "showAll": "رؤية الكل ◄"
 }

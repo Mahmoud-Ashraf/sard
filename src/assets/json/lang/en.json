@@ -9,7 +9,8 @@
         "placeholder": "Search News"
     },
     "buttons": {
-        "cancel": "cancel"
+        "cancel": "cancel",
+        "showMore": "Show More"
     },
     "showAll": "Show All ►"
 }
