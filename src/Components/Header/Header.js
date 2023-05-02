@@ -110,7 +110,7 @@ const Header = () => {
                         </Dropdown>
 
                         <div className="d-flex justify-content-center align-items-center">
-                            <span>{egDate} , {ksaData}</span>
+                            <span>{ksaData} هجريا , {egDate} ميلادي</span>
                             
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>
