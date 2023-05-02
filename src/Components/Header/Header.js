@@ -24,12 +24,12 @@ const Header = () => {
         month: 'short',
         day: 'numeric',
     };
-    const egDate = new Date().toLocaleDateString('ar-EG', options);
-    const ksaData = new Date().toLocaleDateString('ar-SA',{
+    const egDate = new Date().toLocaleDateString('ar-EG', {
         year: 'numeric',
         month: 'short',
         day: 'numeric',
     });
+    const ksaData = new Date().toLocaleDateString('ar-SA', options);
 
     const { isLoading, sendRequest } = useHTTP();
     // const [categories, setCategories] = useState([]);
@@ -110,7 +110,7 @@ const Header = () => {
                         </Dropdown>
 
                         <div className="d-flex justify-content-center align-items-center">
-                            <span>{ksaData} هجريا , {egDate} ميلادي</span>
+                            <span>{ksaData} هجريا , الموافق {egDate} ميلادي</span>
                             
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>

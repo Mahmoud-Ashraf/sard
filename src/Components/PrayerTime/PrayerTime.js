@@ -6,7 +6,6 @@ const PrayerTime = () => {
     const long = useSelector(state => state.auth.long);
     const lat = useSelector(state => state.auth.lat);
     const options = {
-        weekday: 'long',
         year: 'numeric',
         month: 'short',
         day: 'numeric',
@@ -44,7 +43,7 @@ const PrayerTime = () => {
         <div className="prayer-time">
             <div className="row justify-content-between prayer-time-header">
                 <div className="col-auto fw-bold">{user?.country?.name_ar}</div>
-                <div className="col-auto date">{egdate}</div>
+                <div className="col-auto date">{egdate} ميلادي</div>
             </div>
             <div className="row text-center prayer-time-times">
                 <div className="col">
