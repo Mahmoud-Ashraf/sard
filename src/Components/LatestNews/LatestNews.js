@@ -9,10 +9,10 @@ const LatestNews = (props) => {
                 <div className="latest-news-main" style={{ maxHeight: props.maxHeight }}>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6>وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -24,10 +24,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6 >وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -39,10 +39,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6 >وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -54,10 +54,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6 >وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -69,10 +69,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6>وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -84,10 +84,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6>وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -99,10 +99,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6>وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
@@ -114,10 +114,10 @@ const LatestNews = (props) => {
                     </div>
                     <div className="latest-news-main-card" >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-3">
                                 <img src={ronaldo} alt="..." />
                             </div>
-                            <div className="col-md-9">
+                            <div className="col-9">
                                 <div className="latest-news-main-card-body">
                                     <Link className="card-text" to="/">
                                         <h6>وليد الركراكي ضمن المرشحين لتدريب الأخضر.</h6>
