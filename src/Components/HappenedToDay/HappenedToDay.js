@@ -38,7 +38,7 @@ const HappenedToDay = () => {
         isLoading ?
             <Loader />
             :
-            HappenedToDayArr.length > 0 ?
+            HappenedToDayArr?.length > 0 ?
                 <HomeSection title="titles.happendToday" showAll="/">
                     <div className="row">
                         {
