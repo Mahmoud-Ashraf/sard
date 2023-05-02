@@ -12,8 +12,8 @@ import Loader from '../Loader/Loader';
 
 
 const Header = () => {
-    const userCountry = useSelector((state) => {
-        return state.auth.user?.country?.name_ar;
+    const user = useSelector((state) => {
+        return state.auth.user;
     });
     const logo = require('../../assets/images/logo-red.webp');
     const live = require('../../assets/images/live.webp');
@@ -24,7 +24,13 @@ const Header = () => {
         month: 'short',
         day: 'numeric',
     };
-    const date = new Date().toLocaleDateString('ar-EG', options);
+    const egDate = new Date().toLocaleDateString('ar-EG', options);
+    const ksaData = new Date().toLocaleDateString('ar-SA',{
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    });
+
     const { isLoading, sendRequest } = useHTTP();
     // const [categories, setCategories] = useState([]);
     const dispatch = useDispatch();
@@ -104,10 +110,11 @@ const Header = () => {
                         </Dropdown>
 
                         <div className="d-flex justify-content-center align-items-center">
-                            <span>{date}</span>
+                            <span>{egDate} , {ksaData}</span>
+                            
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>
-                                <span className="col-auto"> {userCountry}</span>
+                                <span className="col-auto"> {user?.country?.name_ar}</span>
                                 <span className="col-auto">22° </span>
 
                             </div>

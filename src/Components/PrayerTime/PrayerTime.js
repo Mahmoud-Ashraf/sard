@@ -5,6 +5,18 @@ import { useSelector } from "react-redux";
 const PrayerTime = () => {
     const long = useSelector(state => state.auth.long);
     const lat = useSelector(state => state.auth.lat);
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    };
+    const egdate = new Date().toLocaleDateString('ar-EG', options);
+    // const ksaData = new Date().toLocaleDateString('ar-SA', options);
+
+    const user = useSelector((state) => {
+        return state.auth.user;
+    });
     const todayDate = new Date();
     const [prayerTimes, setPryerTimes] = useState({});
     // const formattedTodayDate = todayDate.getDate() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getFullYear();
@@ -31,10 +43,8 @@ const PrayerTime = () => {
 
         <div className="prayer-time">
             <div className="row justify-content-between prayer-time-header">
-                <div className="col-auto fw-bold">السعودية,
-                    الرياض</div>
-                <div className="col-auto date">8 فبراير
-                    2023 ميلادي</div>
+                <div className="col-auto fw-bold">{user?.country?.name_ar}</div>
+                <div className="col-auto date">{egdate}</div>
             </div>
             <div className="row text-center prayer-time-times">
                 <div className="col">
