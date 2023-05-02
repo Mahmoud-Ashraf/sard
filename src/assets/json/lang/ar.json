@@ -1,9 +1,15 @@
 {
     "titles": {
         "happendToday": "حدث اليوم",
-        "urgent":"عاجل",
-        "lastNews":"اخر الأخبار",
-        "prayerTime":"مواقيت الصلاة"
+        "urgent": "عاجل",
+        "lastNews": "اخر الأخبار",
+        "prayerTime": "مواقيت الصلاة"
+    },
+    "searchBar": {
+        "placeholder": "ابحث عن الخبر"
+    },
+    "buttons": {
+        "cancel": "إلغاء"
     },
     "showAll": "رؤية الكل ◄"
 }

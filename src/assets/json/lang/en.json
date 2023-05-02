@@ -1,10 +1,15 @@
 {
     "titles": {
         "happendToday": "Happend Today",
-        "urgent":"urgent",
-        "lastNews":"last news",
-        "prayerTime":"Prayer Time"
-
+        "urgent": "urgent",
+        "lastNews": "last news",
+        "prayerTime": "Prayer Time"
+    },
+    "searchBar": {
+        "placeholder": "Search News"
+    },
+    "buttons": {
+        "cancel": "cancel"
     },
     "showAll": "Show All ►"
 }

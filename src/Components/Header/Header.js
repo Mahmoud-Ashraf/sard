@@ -130,7 +130,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className={isFocus ? '' : 'd-none searchBar'}>
-                    <SearchBar showSearchBar={showSearchBar} />
+                    <SearchBar showSearchBar={showSearchBar} onSearch={() => setIsFocus(false)} />
                 </div>
                 <div className="header-bottom p-2">
                     <div className='container'>

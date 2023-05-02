@@ -6,6 +6,8 @@ import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
 import NewsList from "./Components/NewsList/NewsList";
 import NewsDetails from "./Components/NewsDetails/NewsDetails";
+import SearhResult from "./Components/SearchResult/SearchResult";
+import NewsSection from "./Components/NewsSection/NewsSection";
 
 function App() {
   console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -48,11 +50,15 @@ function App() {
           children: [
             {
               path: ':categoryId',
-              element: <NewsList />
+              element: <NewsSection />
             },
             {
               path: 'details/:newsId',
               element: <NewsDetails />
+            },
+            {
+              path: 'search/:searchText',
+              element: <SearhResult />
             }
           ]
         }
