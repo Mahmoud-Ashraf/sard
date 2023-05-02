@@ -20,7 +20,7 @@ const SingleNews = (props) => {
                     <div className="single-news-details">
                         <Link to={`/news/details/${props.singleNews?.id}`}>
                             <h3>{props.singleNews.title}</h3>
-                            <p>{props.singleNews.content.substring(0, 100)} ...</p>
+                            <p>{props.singleNews.content.split(' ', 10).join(' ')} ...</p>
                         </Link>
                         <span>{date.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + ' هجريا,' + date.toLocaleDateString('ar-EG', options)}</span>
                     </div>
