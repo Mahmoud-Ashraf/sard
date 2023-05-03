@@ -147,7 +147,7 @@ const Header = () => {
                             {
                                 categories.map(category => {
                                     return (
-                                        <NavLink key={category.id} to={'/news/' + category.id} activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
+                                        <NavLink key={category.id} to={'/news/' + category.name.toLowerCase()} activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
                                     )
                                 })
                             }

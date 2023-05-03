@@ -49,7 +49,7 @@ function App() {
           element: <NewsPage />,
           children: [
             {
-              path: ':categoryId',
+              path: ':categoryName',
               element: <NewsSection />
             },
             {
