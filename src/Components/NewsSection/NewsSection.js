@@ -19,11 +19,13 @@ const NewsSection = () => {
     const [showLoader, setShowLoader] = useState(false);
     useEffect(() => {
         setShowLoader(true);
+        setPage(1);
         dispatch(NewsActions.customNews({ ['category' + categoryId]: [] }));
         getNews(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, categoryId]);
     useEffect(() => {
+        // console.log(page);
         if (page > 1) {
             getNews(page);
         }
