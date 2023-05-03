@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import useHTTP from "../../Hooks/use-http";
 import { NewsActions } from "../../Store/News/News";
 import Loader from "../../Components/Loader/Loader";
+import SportsSection from "../../Components/SportsSection/SportsSection";
 
 const Home = () => {
     const categories = useSelector(state => state.news.categories);
@@ -44,14 +45,8 @@ const Home = () => {
                         <LatestNews />
                     </div>
                 </div>
-                {
-                    categories?.map(category => {
-                        return (
-                            <MainNews key={category.id} category={category} />
-                        )
-                    })
-                }
                 <Advertising />
+
                 <HomeSection title="titles.prayerTime">
                     <div className="row">
                         <div className="col-lg-7">
@@ -62,6 +57,16 @@ const Home = () => {
                         </div>
                     </div>
                 </HomeSection>
+
+                <SportsSection />
+
+                {
+                    categories?.map(category => {
+                        return (
+                            <MainNews key={category.id} category={category} />
+                        )
+                    })
+                }
                 <DownloadApp />
             </div>
     )

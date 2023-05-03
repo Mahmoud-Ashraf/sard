@@ -5,7 +5,8 @@
         "lastNews": "last news",
         "prayerTime": "Prayer Time",
         "newest": "Latest News",
-        "most_readed": "Most Readed"
+        "most_readed": "Most Readed",
+        "sport": "Sport"
     },
     "searchBar": {
         "placeholder": "Search News"
