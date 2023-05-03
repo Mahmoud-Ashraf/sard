@@ -1,10 +1,15 @@
-.urgent-news{
-    &-main{
-        &-header{
-            // padding: 1rem 0;
-            background-color: #fff;
-            img{
-                width: 100%;
+.urgent-news {
+    &-sliders {
+        margin-top: 1rem;
+        img {
+            width: 100%;
+            height: 100%;
+            opacity: .4;
+            height: 3.5rem;
+            cursor: pointer;
+            &.active {
+                opacity: 1;
+                border: 1px solid $main-color
             }
         }
     }

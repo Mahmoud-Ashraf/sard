@@ -19,7 +19,7 @@ const NewsBlock = (props) => {
     useEffect(() => {
         getCover();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [props.singleNews])
     return (
         <div className={classes}>
             <img src={cover} alt="cover" />
