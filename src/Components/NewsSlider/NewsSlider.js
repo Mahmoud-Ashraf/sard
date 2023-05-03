@@ -16,7 +16,7 @@ const NewsSlider = (props) => {
 
     useEffect(() => {
         setSelectedNews(props.news[0]);
-    },[])
+    }, [props.news])
 
     useEffect(() => {
         props.onSliderChange(selectedNews);
@@ -27,8 +27,8 @@ const NewsSlider = (props) => {
             <div className="row g-1">
                 {props.news?.map(singleNews => {
                     return (
-                        <div className="col" key={singleNews.id}>
-                            <img className={(singleNews.id === selectedNews.id) ? 'active' : ''} onClick={() => setSelectedNews(singleNews)} src={getCover(singleNews)} alt="news cover" />
+                        <div className="col" key={singleNews?.id}>
+                            <img className={(singleNews?.id === selectedNews?.id) ? 'active' : ''} onClick={() => setSelectedNews(singleNews)} src={getCover(singleNews)} alt="news cover" />
                         </div>
                     )
                 })}

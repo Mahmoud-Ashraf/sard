@@ -1,0 +1,66 @@
+.matches {
+    .nav-tabs {
+        overflow-x: auto;
+        overflow-y: hidden;
+        column-gap: .5rem;
+        align-items: stretch;
+        border: none;
+
+        .nav-item {
+            width: 18%;
+            min-width: 18%;
+            box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.04);
+
+            .nav-link {
+                border-radius: .5rem;
+                background-color: $match-bg;
+                padding: .5rem;
+                height: 100%;
+
+                &.active {
+                    background-color: $main-color;
+
+                    .matches-leagues-single-name {
+                        color: $white;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &-leagues {
+        margin-bottom: 1rem;
+        ::-webkit-scrollbar {
+            height: 0;
+        }
+
+
+        // ::-webkit-scrollbar-track {
+        //     background-color: $main-bg;
+        // }
+
+
+        // ::-webkit-scrollbar-thumb {
+        //     background-color: $main-color;
+        // }
+
+        &-single {
+            text-align: center;
+
+            img {
+                width: 40px;
+                height: 40px;
+                max-width: 100%;
+                border-radius: 50%;
+
+            }
+
+            &-name {
+                font-size: .7rem;
+                color: $match-color;
+                margin-top: .5rem;
+            }
+        }
+    }
+}

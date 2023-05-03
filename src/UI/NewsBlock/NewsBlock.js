@@ -20,8 +20,6 @@ const NewsBlock = (props) => {
     useEffect(() => {
         if (props.singleNews) {
             setSelectedNews(props.singleNews);
-        } else if (props.sliderNews) {
-            setSelectedNews(props.sliderNews[0]);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
