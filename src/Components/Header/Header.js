@@ -48,7 +48,8 @@ const Header = () => {
                     method: 'GET'
                 },
                 data => {
-                    dispatch(NewsActions.setCategories(data.data));
+                    const newData = data.data.map(category => { return { ...category, code: category.name.toLowerCase().split(' ').join('_') } });
+                    dispatch(NewsActions.setCategories(newData));
                     // setCategories(data.data);
                 },
                 err => {
@@ -98,8 +99,8 @@ const Header = () => {
                                     </span>
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </Dropdown.Item>
-                                <br/>
-                                <hr/>
+                                <br />
+                                <hr />
                                 <Dropdown.Item href="#/action-4" className='actions d-flex justify-content-between mt-2'>
                                     <span>
                                         تسجيل الخروج
@@ -111,7 +112,7 @@ const Header = () => {
 
                         <div className="d-flex justify-content-center align-items-center">
                             <span>{ksaData} هجريا , الموافق {egDate} ميلادي</span>
-                            
+
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>
                                 <span className="col-auto"> {user?.country?.name_ar}</span>
@@ -147,7 +148,7 @@ const Header = () => {
                             {
                                 categories.map(category => {
                                     return (
-                                        <NavLink key={category.id} to={'/news/' + category.name.toLowerCase()} activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
+                                        <NavLink key={category.id} to={'/news/' + category.code} activeclassname='active-link' className='col-auto'>{category.name_ar}</NavLink>
                                     )
                                 })
                             }

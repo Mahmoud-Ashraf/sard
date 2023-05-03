@@ -8,8 +8,8 @@ import { useParams } from "react-router-dom";
 import Translate from "../../helpers/Translate/Translate";
 
 const NewsSection = () => {
-    const { categoryName } = useParams();
-    const newsStore = useSelector(state => state.news['category' + categoryName]);
+    const { categoryCode } = useParams();
+    const newsStore = useSelector(state => state.news['category' + categoryCode]);
     const categoriesArr = useSelector(state => state.news.categories);
     const { isLoading, sendRequest } = useHTTP();
     const dispatch = useDispatch();
@@ -19,19 +19,17 @@ const NewsSection = () => {
     const [nextPage, setNextPage] = useState(1);
     const [showLoader, setShowLoader] = useState(false);
     const getCategoryId = () => {
-        console.log(categoriesArr);
-        console.log(categoryName);
-        return categoriesArr.filter(category => category.name.toLowerCase() === categoryName)[0]?.id
+        return categoriesArr.filter(category => category.code === categoryCode)[0]?.id
     }
     const categoryId = getCategoryId();
 
     useEffect(() => {
         setShowLoader(true);
         setPage(1);
-        dispatch(NewsActions.customNews({ ['category' + categoryName]: [] }));
+        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [] }));
         getNews(1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, categoryName]);
+    }, [token, categoryCode]);
     useEffect(() => {
         // console.log(page);
         if (page > 1) {
@@ -55,9 +53,9 @@ const NewsSection = () => {
                     // setNews([...news, ...newData]);
                     setNextPage(data.pagination.next_page);
                     if (data.pagination.current_page === 1) {
-                        dispatch(NewsActions.customNews({ ['category' + categoryName]: [...newData] }));
+                        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...newData] }));
                     } else {
-                        dispatch(NewsActions.customNews({ ['category' + categoryName]: [...news, ...newData] }));
+                        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...news, ...newData] }));
                     }
                     setShowLoader(false);
                 },
