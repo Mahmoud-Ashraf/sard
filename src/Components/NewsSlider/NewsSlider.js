@@ -4,7 +4,6 @@ const NewsSlider = (props) => {
     const [selectedNews, setSelectedNews] = useState({});
 
     const getCover = (newsToGet) => {
-        console.log(newsToGet);
         const attCovers = newsToGet?.attachments?.filter(attachment => attachment.type === 'photo');
         if (newsToGet?.images_url?.length > 0) {
             return newsToGet?.images_url[0]?.url;
