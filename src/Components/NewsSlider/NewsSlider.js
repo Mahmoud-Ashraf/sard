@@ -20,6 +20,7 @@ const NewsSlider = (props) => {
 
     useEffect(() => {
         props.onSliderChange(selectedNews);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedNews])
 
     return (

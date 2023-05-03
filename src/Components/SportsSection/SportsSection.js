@@ -27,6 +27,7 @@ const SportsSection = () => {
 
     useEffect(() => {
         getSportNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
 
     useEffect(() => {

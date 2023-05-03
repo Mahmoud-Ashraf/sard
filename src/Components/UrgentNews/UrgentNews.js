@@ -2,10 +2,10 @@ import useHTTP from "../../Hooks/use-http";
 import HomeSection from "../../UI/HomeSection/HomeSection";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 import { useSelector } from 'react-redux';
-import { NewsActions } from '../../Store/News/News';
+// import { NewsActions } from '../../Store/News/News';
 import Loader from '../Loader/Loader';
 import { useEffect, useState } from 'react';
-import NewsSlider from "../NewsSlider/NewsSlider";
+// import NewsSlider from "../NewsSlider/NewsSlider";
 
 
 const UrgentNews = (props) => {
@@ -31,6 +31,7 @@ const UrgentNews = (props) => {
 
     useEffect(() => {
         getUrgentNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     return (

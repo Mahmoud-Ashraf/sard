@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter, redirect } from "react-router-dom"
 import Home from "./Views/Home/Home";
 import LayoutWrapper from "./UI/LayoutWrapper/LayoutWrapper";
 import NewsPage from "./Views/NewsPage/NewsPage";
-import NewsList from "./Components/NewsList/NewsList";
+// import NewsList from "./Components/NewsList/NewsList";
 import NewsDetails from "./Components/NewsDetails/NewsDetails";
 import SearhResult from "./Components/SearchResult/SearchResult";
 import NewsSection from "./Components/NewsSection/NewsSection";

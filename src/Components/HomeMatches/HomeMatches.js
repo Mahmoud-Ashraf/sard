@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { Fragment, useEffect, useState } from "react";
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
+// import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-import { Stack } from "react-bootstrap";
+// import { Stack } from "react-bootstrap";
 
 const HomeMatches = () => {
     const todayDate = new Date();
@@ -38,6 +38,7 @@ const HomeMatches = () => {
 
     useEffect(() => {
         getResults();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     useEffect(() => {

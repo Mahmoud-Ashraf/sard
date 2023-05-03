@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useHTTP from "../../Hooks/use-http";
 import { useSelector } from "react-redux";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 
