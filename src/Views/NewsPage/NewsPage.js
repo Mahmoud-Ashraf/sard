@@ -3,7 +3,7 @@ import PrayerTime from "../../Components/PrayerTime/PrayerTime";
 import DownloadApp from "../../Components/DownloadApp/DownloadApp";
 import MainBox from "../../UI/MainBox/MainBox";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const NewsPage = () => {
