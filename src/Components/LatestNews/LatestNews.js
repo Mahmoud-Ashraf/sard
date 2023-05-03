@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import HomeSection from "../../UI/HomeSection/HomeSection";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useState } from "react";
-import MainBox from "../../UI/MainBox/MainBox";
 import useTranslate from "../../Hooks/use-translate";
 import Translate from "../../helpers/Translate/Translate";
 

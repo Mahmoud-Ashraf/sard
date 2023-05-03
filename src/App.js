@@ -10,7 +10,7 @@ import SearhResult from "./Components/SearchResult/SearchResult";
 import NewsSection from "./Components/NewsSection/NewsSection";
 
 function App() {
-  console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
+  // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
   const rootEle = document.getElementById("root-html");
   const globalLang = useSelector((state) => {
     return state.lang.globalLang;
