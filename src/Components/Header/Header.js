@@ -78,7 +78,7 @@ const Header = () => {
                         <Dropdown>
                             <Dropdown.Toggle className='text-white' variant="transperent" id="dropdown-basic">
                                 <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
-                                <span className="btn me-3 text-white">مرحباً تامر</span>
+                                <span className="btn me-3 text-white">{user.name_ar} مرحباً </span>
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item href="#/action-1" className='actions d-flex justify-content-between m-1'>
