@@ -40,7 +40,7 @@ const Home = () => {
                     <div className="col-lg-7">
                         <UrgentNews />
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 mb-5 mb-lg-0">
                         <LatestNews />
                     </div>
                 </div>
@@ -54,10 +54,10 @@ const Home = () => {
                 <Advertising />
                 <HomeSection title="titles.prayerTime">
                     <div className="row">
-                        <div className="col-7">
+                        <div className="col-lg-7">
                             <PrayerTime />
                         </div>
-                        <div className="col-5">
+                        <div className="col-lg-5 mt-3 mt-lg-0">
                             <Advertising />
                         </div>
                     </div>

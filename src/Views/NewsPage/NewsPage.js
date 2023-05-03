@@ -19,8 +19,8 @@ const NewsPage = () => {
                 <div className="col-lg-7">
                     <Outlet></Outlet>
                 </div>
-                <div className="col-lg-5">
-                    <LatestNews maxHeight="60rem" />
+                <div className="col-lg-5 my-5 my-lg-0">
+                    <LatestNews />
                     <MainBox>
                         <HomeSectionHeder title="titles.prayerTime" />
                         <PrayerTime />
