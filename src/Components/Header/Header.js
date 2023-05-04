@@ -48,7 +48,8 @@ const Header = () => {
                     method: 'GET'
                 },
                 data => {
-                    const newData = data.data.map(category => { return { ...category, code: category.name.toLowerCase().split(' ').join('_') } });
+                    let newData = data.data.filter(category => category.is_following);
+                    newData = newData.map(category => { return { ...category, code: category.name.toLowerCase().split(' ').join('_') } });
                     dispatch(NewsActions.setCategories(newData));
                     // setCategories(data.data);
                 },
