@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Loader from "../Loader/Loader";

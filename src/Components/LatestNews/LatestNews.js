@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import useTranslate from "../../Hooks/use-translate";
 import Loader from "../Loader/Loader";
-import SingleNews from "../SingleNews/SingleNews";
 import NewsList from "../NewsList/NewsList";
 
 
