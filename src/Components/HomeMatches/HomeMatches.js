@@ -95,7 +95,7 @@ const HomeMatches = () => {
                                                                     {match.status === 'NS' && <span>{match.time.slice(0, 5)}</span>}
                                                                     {match.status === 'POSTP' && <span>مؤجل {match.time.slice(0, 5)}</span>}
                                                                     {(match.status === 'FT' || match.status === 'AET' || match.status === 'FT_PEN') && <span>انتهى</span>}
-                                                                    {match.status === 'LIVE' && <span>جاري {match.minutes_passed}</span>}
+                                                                    {match.status === 'LIVE' && <span>جاري 00 : {match.minutes_passed > 9 ? match.minutes_passed : `0${match.minutes_passed}`}</span>}
                                                                     {match.status === 'HT' && <span>استراحة الشوط الاول</span>}
                                                                     {(match.status === 'ET' || match.status === 'BREAK') && <span>استراحة الوقت الاضافي</span>}
                                                                     {match.status === 'PEN_LIVE' && <span>ركلات ترجيح</span>}
