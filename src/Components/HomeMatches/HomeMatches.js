@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { Fragment, useEffect, useState } from "react";
-// import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-// import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-// import { Stack } from "react-bootstrap";
+import Loader from "../Loader/Loader";
 
 const HomeMatches = () => {
     const todayDate = new Date();
-    const { sendRequest } = useHTTP();
+    const { isLoading, sendRequest } = useHTTP();
     const token = useSelector(state => state.auth.token);
     const [todayResults, setTodayResults] = useState([]);
     const [key, setKey] = useState('');
@@ -23,7 +21,6 @@ const HomeMatches = () => {
                 data => {
                     const formatedDate = formatDate(todayDate)
                     let newData = Object.values(data.data[formatedDate]);
-                    // console.log(newData);
                     setTodayResults(newData);
                 }
             )
@@ -38,16 +35,20 @@ const HomeMatches = () => {
 
     useEffect(() => {
         getResults();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     useEffect(() => {
-        setKey(todayResults[0]?.league?.id)
+        if (todayResults[0]) {
+            setKey(todayResults[0][0]?.league?.id)
+        }
     }, [todayResults])
     return (
-        <Fragment>
+        isLoading ?
+            <Loader />
+            :
             <div className="matches">
-                <header className="text-center">مباريات اليوم</header>
+                <header className="text-center mb-2">مباريات اليوم</header>
                 <Tab.Container id="matches-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
                     {/* <Row>
                         <Col sm={12}> */}
@@ -69,37 +70,44 @@ const HomeMatches = () => {
                             }
                         </Nav>
                     </div>
-                    {/* </Col>
-                        <Col sm={12}> */}
-                    <div className="matches-score">
+                    <div className="matches-tab">
                         <Tab.Content>
                             {todayResults?.map(league =>
                                 <Tab.Pane eventKey={league[0]?.league?.id} key={league[0]?.league?.id}>
-                                    <div className="matches-scores">
+                                    <div className="matches-score">
                                         {
                                             league.map(match => {
                                                 return (
                                                     <div key={match.id} className="matches-score-match">
-                                                        <div className="row justify-content-around gx-1 align-items-center mb-3">
+                                                        <div className="row justify-content-around gx-1 align-items-center">
                                                             <div className="col-3 text-center">
-                                                                <img className="img-fluid" src={match.local_team?.logo_path} alt="local team logo" />
+                                                                <img src={match.local_team?.logo_path} alt="local team logo" />
                                                                 <h6 className="matches-score-match-team-name">{match.local_team?.name}</h6>
                                                             </div>
 
                                                             <div className="col-auto">
                                                                 <div className="matches-score-match-result text-center">
-                                                                    <span className="matches-score-match-result-localteam">2</span>
+                                                                    <span className="matches-score-match-result-visitorteam">{match.visitorteam_score}</span>
                                                                     <span className="matches-score-match-result-seperator">:</span>
-                                                                    <span className="matches-score-match-result-visitorteam">1</span>
+                                                                    <span className="matches-score-match-result-localteam">{match.localteam_score}</span>
                                                                 </div>
                                                                 <div className="matches-score-match-time">
-                                                                    {/* <span>{match.status === 'NS'}</span> */}
+                                                                    {match.status === 'NS' && <span>{match.time.slice(0, 5)}</span>}
+                                                                    {match.status === 'POSTP' && <span>مؤجل {match.time.slice(0, 5)}</span>}
+                                                                    {(match.status === 'FT' || match.status === 'AET' || match.status === 'FT_PEN') && <span>انتهى</span>}
+                                                                    {match.status === 'LIVE' && <span>جاري {match.minutes_passed}</span>}
+                                                                    {match.status === 'HT' && <span>استراحة الشوط الاول</span>}
+                                                                    {(match.status === 'ET' || match.status === 'BREAK') && <span>استراحة الوقت الاضافي</span>}
+                                                                    {match.status === 'PEN_LIVE' && <span>ركلات ترجيح</span>}
+                                                                    {match.status === 'CANCL' && <span>ملغي</span>}
+                                                                    {match.status === 'INT' && <span>توقفت</span>}
+                                                                    {match.status === 'DELAYED' && <span>متاخر</span>}
                                                                     <i className="fa-regular fa-clock"></i>
                                                                 </div>
                                                             </div>
 
                                                             <div className="col-3 text-center">
-                                                                <img className="img-fluid" src={match.visitor_team?.logo_path} alt="visitor team logo" />
+                                                                <img src={match.visitor_team?.logo_path} alt="visitor team logo" />
                                                                 <h6 className="matches-score-match-team-name">{match.visitor_team?.name}</h6>
                                                             </div>
                                                         </div>
@@ -112,50 +120,8 @@ const HomeMatches = () => {
                             )}
                         </Tab.Content>
                     </div>
-                    {/* </Col>
-                    </Row> */}
                 </Tab.Container>
             </div>
-
-            {/* <div className="matches">
-                <header>مباريات اليوم</header>
-                <div className="matches-leagues">
-                    <div className="row">
-                        <div className="col">
-
-                        </div>
-                    </div>
-                </div>
-                <div className="matches-scores">
-                    <div className="matches-score-match">
-                        <div className="row justify-content-around">
-                            <div className="col-auto">
-                                <img src={'/'} alt="team logo" />
-                                <h6 className="matches-score-match-team-name">Netharland</h6>
-                            </div>
-
-                            <div className="col-auto">
-                                <div className="matches-score-match-result">
-                                    <span className="matches-score-match-result-localteam">2</span>
-                                    <span className="matches-score-match-result-seperator">:</span>
-                                    <span className="matches-score-match-result-visitorteam">1</span>
-                                </div>
-                                <div className="matches-score-match-time">
-                                    <span>84:23</span>
-                                    <i className="fa-regular fa-clock"></i>
-                                </div>
-                            </div>
-
-                            <div className="col-auto">
-                                <img src={'/'} alt="team logo" />
-                                <h6 className="matches-score-match-team-name">Morocco</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-        </Fragment>
-
     )
 }
 
