@@ -13,7 +13,7 @@ const SingleNews = (props) => {
             <div className="row">
                 <div className="col-4">
                     <div className="single-news-cover">
-                        <NewsBlock singleNews={props.singleNews} size="sm" />
+                        <NewsBlock singleNews={props.singleNews} hideBlockData={props.hideBlockData} size="sm" />
                     </div>
                 </div>
                 <div className="col-8">

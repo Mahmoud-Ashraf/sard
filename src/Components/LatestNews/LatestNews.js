@@ -7,15 +7,20 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import useTranslate from "../../Hooks/use-translate";
 import Loader from "../Loader/Loader";
+import SingleNews from "../SingleNews/SingleNews";
+import NewsList from "../NewsList/NewsList";
 
 
 
 const LatestNews = (props) => {
-    const [key, setKey] = useState('newest');
     const { isLoading, sendRequest } = useHTTP();
     const token = useSelector(state => state.auth.token);
-    const [News, setNews] = useState([]);
-
+    const [news, setNews] = useState([]);
+    const [tabs] = useState([
+        { name: 'newest', title: useTranslate('titles.newest') },
+        { name: 'most_readed', title: useTranslate('titles.most_readed') }
+    ]);
+    const [key, setKey] = useState(tabs[0].name);
     const getNews = () => {
         if (token) {
             sendRequest(
@@ -45,56 +50,19 @@ const LatestNews = (props) => {
                 activeKey={key}
                 onSelect={(k) => setKey(k)}
                 className="mb-3">
-                <Tab eventKey="newest" title={useTranslate(`titles.newest`)}>
-                    {News?.map(New => {
+                {
+                    tabs.map((tab, i) => {
                         return (
-                            isLoading ?
-                                <Loader />
-                                :
-                                <div className="latest-news-main-card" >
-                                    <div className="row">
-                                        <div className="col-3">
-                                            <img src={New.resource.logo} alt="..." />
-                                        </div>
-                                        <div className="col-9">
-                                            <div className="latest-news-main-card-body">
-                                                <Link className="card-text" to="/">
-                                                    <h6>{New.title ? "" : New.content }</h6>
-                                                </Link>
-                                                <p className="mt-3"><small className="text-body-secondary">{New.created_from}</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <Tab key={i} eventKey={tab.name} title={tab.title}>
+                                {isLoading ?
+                                    <Loader />
+                                    :
+                                    <NewsList news={news} hideBlockData={true} />
+                                }
+                            </Tab>
                         )
-                    })}
-                </Tab>
-
-                <Tab eventKey="most_readed" title={useTranslate(`titles.most_readed`)}>
-                    {News?.map(New => {
-                        return (
-                            isLoading ?
-                                <Loader />
-                                :
-                                <div className="latest-news-main-card" >
-                                    <div className="row">
-                                        <div className="col-3">
-                                            <img src={New.resource.logo} alt="..." />
-                                        </div>
-                                        <div className="col-9">
-                                            <div className="latest-news-main-card-body">
-                                                <Link className="card-text" to="/">
-                                                    <h6>{New.title ? "" : New.content}</h6>
-                                                </Link>
-                                                <p className="mt-3"><small className="text-body-secondary">{New.created_from}</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        )
-                    })}
-                </Tab>
-
+                    })
+                }
             </Tabs>
             <Link className="home-section-header-showall tabs-section-header-showall" to={`/news/${key}`}><Translate id="showAll" /></Link>
         </section>

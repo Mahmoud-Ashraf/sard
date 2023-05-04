@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NewsSlider from '../../Components/NewsSlider/NewsSlider';
 
@@ -30,17 +30,22 @@ const NewsBlock = (props) => {
     return (
         <div className={classes}>
             <img src={cover} alt="cover" />
-            <div className="news-block-caption">
-                <Link to={`/news/details/${selectedNews?.id}`}>{selectedNews?.title || selectedNews?.content?.split(' ', 10).join(' ')}</Link>
-                <span>{selectedNews?.created_from}</span>
-                {props.sliderNews && <NewsSlider news={props.sliderNews} onSliderChange={(e) => setSelectedNews(e)} />}
-            </div>
-            <div className="news-block-share">
-                <Link><img src={share} alt="share icon" /></Link>
-            </div>
-            <div className="news-block-newspaper">
-                <img src={selectedNews?.resource?.logo} alt="newspaper icon" />
-            </div>
+            {
+                props.hideBlockData ||
+                <Fragment>
+                    <div className="news-block-caption">
+                        <Link to={`/news/details/${selectedNews?.id}`}>{selectedNews?.title || selectedNews?.content?.split(' ', props.size ? 5 : 10).join(' ')} ...</Link>
+                        <span>{selectedNews?.created_from}</span>
+                        {props.sliderNews && <NewsSlider news={props.sliderNews} onSliderChange={(e) => setSelectedNews(e)} />}
+                    </div>
+                    <div className="news-block-share">
+                        <Link><img src={share} alt="share icon" /></Link>
+                    </div>
+                    <div className="news-block-newspaper">
+                        <img src={selectedNews?.resource?.logo} alt="newspaper icon" />
+                    </div>
+                </Fragment>
+            }
         </div>
     )
 }
