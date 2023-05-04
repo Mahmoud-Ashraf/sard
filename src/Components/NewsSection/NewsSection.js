@@ -18,18 +18,18 @@ const NewsSection = () => {
     const [page, setPage] = useState(1);
     const [nextPage, setNextPage] = useState(1);
     const [showLoader, setShowLoader] = useState(false);
-    const getCategoryId = () => {
-        return categoriesArr.filter(category => category.code === categoryCode)[0]?.id
-    }
-    const categoryId = getCategoryId();
-
+    const [categoryId, setCategoryId] = useState(() => {
+        return categoriesArr.find(category => category.code === categoryCode)?.id;
+    });
     useEffect(() => {
-        setShowLoader(true);
-        setPage(1);
-        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [] }));
-        getNews(1);
+        if (token && categoryId) {
+            setShowLoader(true);
+            setPage(1);
+            dispatch(NewsActions.customNews({ ['category' + categoryCode]: [] }));
+            getNews(1);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, categoryCode]);
+    }, [token, categoryId]);
     useEffect(() => {
         // console.log(page);
         if (page > 1) {
@@ -41,6 +41,12 @@ const NewsSection = () => {
     useEffect(() => {
         setNews(newsStore);
     }, [newsStore])
+
+    useEffect(() => {
+        setCategoryId(() => {
+            return categoriesArr.find(category => category.code === categoryCode)?.id;
+        });
+    }, [categoriesArr, categoryCode])
 
     const getNews = (currentPage) => {
         if (token) {
@@ -72,7 +78,7 @@ const NewsSection = () => {
             :
             <Fragment>
                 <NewsList news={news} />
-                {news.length > 0 && <div className="show-more text-center mt-4">
+                {news?.length > 0 && <div className="show-more text-center mt-4">
                     <button className="btn btn-danger" disabled={!nextPage || isLoading} onClick={() => setPage(nextPage)}><Translate id="buttons.showMore" /> {isLoading && <i className="fa-solid fa-spinner fa-spin"></i>}</button>
                 </div>}
             </Fragment>
