@@ -56,7 +56,7 @@ const LatestNews = (props) => {
                                 {isLoading ?
                                     <Loader />
                                     :
-                                    <NewsList news={news} hideBlockData={true} />
+                                    <NewsList news={news} hideBlockData={true} showCreateFrom={true} />
                                 }
                             </Tab>
                         )

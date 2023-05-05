@@ -22,7 +22,11 @@ const SingleNews = (props) => {
                             <h3>{props.singleNews.title}</h3>
                             <p>{props.singleNews.content.split(' ', 10).join(' ')} ...</p>
                         </Link>
-                        <span>{date.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + ' هجريا,' + date.toLocaleDateString('ar-EG', options)}</span>
+                        {props.showCreateFrom ?
+                            <span>{props.singleNews.created_from}</span>
+                            :
+                            <span>{date.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + ' هجريا,' + date.toLocaleDateString('ar-EG', options)}</span>
+                        }
                     </div>
                 </div>
             </div>

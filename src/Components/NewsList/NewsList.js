@@ -6,7 +6,7 @@ const NewsList = (props) => {
         <div className="news-list">
             {
                 props.news?.length > 0 ?
-                    props.news?.map(singleNews => <SingleNews key={singleNews?.id} singleNews={singleNews} hideBlockData={props.hideBlockData} />)
+                    props.news?.map(singleNews => <SingleNews key={singleNews?.id} singleNews={singleNews} hideBlockData={props.hideBlockData} showCreateFrom={props.showCreateFrom} />)
                     :
                     <NoData />
             }
