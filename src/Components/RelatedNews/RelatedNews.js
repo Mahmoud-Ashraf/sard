@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import Translate from "../../helpers/Translate/Translate";
@@ -23,6 +23,9 @@ const RelatedNews = (props) => {
             )
         }
     }
+    useEffect(() => {
+        getRelatedNews();
+    }, [token]);
     return (
         <div className="related-news">
             <header className="home-section-header">
