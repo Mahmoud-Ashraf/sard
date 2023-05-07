@@ -6,7 +6,8 @@
         "prayerTime": "مواقيت الصلاة",
         "newest": "اخر الأخبار",
         "most_readed": "الأكثر قراءة",
-        "sport": "رياضة"
+        "sport": "رياضة",
+        "relatedNews": "اخبار ذات صلة"
     },
     "searchBar": {
         "placeholder": "ابحث عن الخبر"

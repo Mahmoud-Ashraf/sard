@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import useHTTP from "../../Hooks/use-http";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
+import RelatedNews from "../RelatedNews/RelatedNews";
 
 const NewsDetails = () => {
     const { newsId } = useParams();
@@ -27,14 +28,14 @@ const NewsDetails = () => {
     // console.log(new Intl.DateTimeFormat('ar-EG', { dateStyle: 'full', timeStyle: 'long' }).format(date));
 
     const getNews = () => {
-        if (token) {
+        if (token && newsId) {
             sendRequest(
                 {
                     url: `get_news_by_id/${newsId}`
                 },
                 data => {
                     setSelectedNews(data.data);
-                    setNewsDate(new Date(data.data.created_at));
+                    setNewsDate(new Date(data.data?.created_at));
                     // dispatch(NewsActions.customNews({ ['category' + categoryId]: data.data }));
                 },
                 err => {
@@ -49,16 +50,23 @@ const NewsDetails = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, newsId]);
     return (
-        isLoading ?
-            <Loader />
-            :
-            <div className="news-details">
-                <NewsBlock singleNews={selectedNews} />
-                <p className="mt-2">{newsDate?.toLocaleTimeString('ar-EG') + '. ' + newsDate?.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + '. ' + newsDate?.toLocaleDateString('ar-EG', options)}</p>
-                <p className="news-details-content mt-3">
-                    {selectedNews.content}
-                </p>
-            </div>
+        <Fragment>
+
+            {isLoading ?
+                <Loader />
+                :
+                selectedNews &&
+                <div className="news-details">
+                    <NewsBlock singleNews={selectedNews} />
+                    <p className="mt-2">{newsDate?.toLocaleTimeString('ar-EG') + '. ' + newsDate?.toLocaleDateString('ar-SA', { weekday: 'long', ...options }) + '. ' + newsDate?.toLocaleDateString('ar-EG', options)}</p>
+                    <p className="news-details-content mt-3">
+                        {selectedNews?.content}
+                    </p>
+                </div>
+            }
+            <RelatedNews news={selectedNews} />
+        </Fragment>
+
     )
 }
 
