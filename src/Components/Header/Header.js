@@ -12,7 +12,7 @@ import Loader from '../Loader/Loader';
 
 
 const Header = () => {
-    const [weather ,setWeather] = useState({});
+    const temp = useSelector(state => state.auth.temp)
     const user = useSelector((state) => {
         return state.auth.user;
     });
@@ -60,19 +60,10 @@ const Header = () => {
             )
         }
     }
-    const getWeatherTempreature = () => {
-        fetch(`http://api.weatherapi.com/v1/current.json?key=d5f4ef18f3ac4a409bf224727230505&q=${user?.country?.name}&aqi=no
-        `)
-            .then(res => res.json())
-            .then(resualt => {
-                console.log(resualt);
-                setWeather(resualt)
-            })
-    }
-
+    
+ 
     useEffect(() => {
         getCategories();
-        getWeatherTempreature();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
     const [isFocus, setIsFocus] = useState(false);
@@ -128,7 +119,7 @@ const Header = () => {
                             <div className="row border rounded p-1 justify-content-between align-items-center me-2 gx-2">
                                 <i className="col-auto fa-solid fa-sun text-warning"></i>
                                 <span className="col-auto"> {user?.country?.name_ar}</span>
-                                <span className="col-auto">{weather?.current?.temp_c}° </span>
+                                <span className="col-auto">{temp}° </span>
 
                             </div>
                         </div>

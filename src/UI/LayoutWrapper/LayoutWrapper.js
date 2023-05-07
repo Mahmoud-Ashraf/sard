@@ -7,9 +7,11 @@ import { authActions } from "../../Store/Auth/Auth";
 import { useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 
+
 const LayoutWrapper = () => {
     const dispatch = useDispatch();
     const { isLoading, sendRequest } = useHTTP();
+    const { lat, long } = useSelector(state => state.auth);
     const countryCode = useSelector(state => state.auth.countryCode);
     const getGuestToken = () => {
         if (localStorage.getItem('token') && localStorage.getItem('user')) {
@@ -40,6 +42,21 @@ const LayoutWrapper = () => {
                 dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
             });
     }
+    const getWeatherTempreature = () => {
+        fetch(`http://api.weatherapi.com/v1/current.json?key=d5f4ef18f3ac4a409bf224727230505&q=${lat},${long}&aqi=no
+        `)
+            .then(res => res.json())
+            .then(resualt => {
+                dispatch(authActions.setTemperature({ temp: resualt.current.temp_c }))
+                console.log(resualt);
+            })
+    }
+    useEffect(() => {
+        if (long && lat) {
+            getWeatherTempreature();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [long, lat]);
     useEffect(() => {
         getCurrentLocation();
         // eslint-disable-next-line react-hooks/exhaustive-deps

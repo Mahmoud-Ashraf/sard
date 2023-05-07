@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialAuthState = { token: '', user: {}, long: '', lat: '', countryCode: '' };
+const initialAuthState = { token: '', user: {}, long: '', lat: '', countryCode: '' ,temp:''};
 
 const authSlice = createSlice({
     name: 'auth',
@@ -14,6 +14,9 @@ const authSlice = createSlice({
             state.long = action.payload.long;
             state.lat = action.payload.lat;
             state.countryCode = action.payload.countryCode
+        },
+        setTemperature(state, action){
+            state.temp = action.payload.temp;
         }
     }
 })
