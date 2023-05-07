@@ -25,7 +25,7 @@ const Home = () => {
                     method: 'GET'
                 },
                 data => {
-                    dispatch(NewsActions.customNews({ ['category' + category.id]: data.data }));
+                    dispatch(NewsActions.customNews({ ['category' + category.code]: data.data }));
                 }
             )
         });
