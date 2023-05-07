@@ -4,11 +4,11 @@ import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 
 const MainNews = (props) => {
     const news = useSelector(state => {
-        return state.news['category' + props.category.id]
+        return state.news['category' + props.category.code]
     });
     return (
         news?.length > 0 ?
-            <HomeSection title={props.category.name_ar} showAll={`/news/${props.category.id}`}>
+            <HomeSection title={props.category.name_ar} showAll={`/news/${props.category.code}`}>
                 <div className="row g-2">
                     <div className="col-lg-7">
                         <NewsBlock singleNews={news[0]} />

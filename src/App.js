@@ -8,6 +8,7 @@ import NewsPage from "./Views/NewsPage/NewsPage";
 import NewsDetails from "./Components/NewsDetails/NewsDetails";
 import SearhResult from "./Components/SearchResult/SearchResult";
 import NewsSection from "./Components/NewsSection/NewsSection";
+import ReadFromSource from "./Views/ReadFromSource/ReadFromSource";
 
 function App() {
   // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -61,6 +62,10 @@ function App() {
               element: <SearhResult />
             }
           ]
+        },
+        {
+          path: '/source/:newsId',
+          element: <ReadFromSource />
         }
       ],
     },
