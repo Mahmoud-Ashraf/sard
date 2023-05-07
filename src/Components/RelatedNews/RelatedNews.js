@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
 import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import Translate from "../../helpers/Translate/Translate";
+import { Link } from "react-router-dom";
 
 const RelatedNews = (props) => {
     const { sendRequest } = useHTTP();
@@ -25,16 +26,17 @@ const RelatedNews = (props) => {
     }
     useEffect(() => {
         getRelatedNews();
-    }, [token]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [token, props.news]);
     return (
-        <div className="related-news">
+        <div className="related-news mt-5">
             <header className="home-section-header">
                 <h2 className="home-section-header-title fw-bold"><Translate id='titles.relatedNews' /></h2>
-                <button className="btn btn-danger">قراءة المقال من المصدر</button>
+                <Link className="btn btn-danger" to={`/source/${props.news?.id}`}>قراءة المقال من المصدر</Link>
             </header>
-            <div className="row">
+            <div className="row g-2">
                 {
-                    relatedNews.map(singleNews =>
+                    relatedNews?.slice(0, 4).map(singleNews =>
                         <div className="col-6" key={singleNews.id}>
                             <NewsBlock singleNews={singleNews} size="sm" />
                         </div>
