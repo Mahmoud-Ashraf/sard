@@ -11,7 +11,6 @@ const ReadFromSource = () => {
     const { isLoading, sendRequest } = useHTTP();
     const token = useSelector(state => state.auth.token);
     const [url, setUrl] = useState('');
-    const [frameLoading, setFrameLoading] = useState(true);
     const getSingleNews = () => {
         if (token && newsId) {
             sendRequest(
@@ -29,11 +28,11 @@ const ReadFromSource = () => {
     const onLoad = () => {
         console.log('frame loaded');
         setHeight(window.screen.height - document.getElementById('header').offsetHeight - 15);
-        setFrameLoading(false);
     };
 
     useEffect(() => {
         getSingleNews();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, newsId]);
     // useEffect(() => {
     //     onLoad();
