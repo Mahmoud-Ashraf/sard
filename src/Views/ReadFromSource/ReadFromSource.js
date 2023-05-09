@@ -26,7 +26,6 @@ const ReadFromSource = () => {
     }
 
     const onLoad = () => {
-        console.log('frame loaded');
         setHeight(window.screen.height - document.getElementById('header').offsetHeight - 15);
     };
 
