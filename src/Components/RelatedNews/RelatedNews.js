@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import useHTTP from "../../Hooks/use-http";
 import { useEffect, useState } from "react";
 import NewsBlock from "../../UI/NewsBlock/NewsBlock";
-import HomeSectionHeder from "../../UI/HomeSection/HomeSectionHeader/HomeSectionHeader";
 import Translate from "../../helpers/Translate/Translate";
 import { Link } from "react-router-dom";
 
