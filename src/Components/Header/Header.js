@@ -75,7 +75,7 @@ const Header = () => {
         isLoading ?
             <Loader />
             :
-            <header className="header">
+            <header className="header" id="header">
                 <div className="header-top text-white">
                     <div className="container header-top-content">
                         <Dropdown>
