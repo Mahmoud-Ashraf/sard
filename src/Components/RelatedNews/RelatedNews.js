@@ -31,11 +31,14 @@ const RelatedNews = (props) => {
         <div className="related-news mt-5">
             <header className="home-section-header">
                 <h2 className="home-section-header-title fw-bold"><Translate id='titles.relatedNews' /></h2>
-                <Link className="btn btn-danger btn-sm d-flex align-items-center" to={`/source/${props.news?.id}`}>
-                    <span className="ms-2">قراءة المقال من المصدر</span>
-                    <i className="fa-solid fa-chevron-left fa-xs"></i>
-                    <i className="fa-solid fa-bars-staggered fa-flip-horizontal"></i>
-                </Link>
+                {
+                    props.news?.link_url &&
+                    <Link className="btn btn-danger btn-sm d-flex align-items-center" to={`/source/${props.news?.id}`}>
+                        <span className="ms-2">قراءة المقال من المصدر</span>
+                        <i className="fa-solid fa-chevron-left fa-xs"></i>
+                        <i className="fa-solid fa-bars-staggered fa-flip-horizontal"></i>
+                    </Link>
+                }
             </header>
             <div className="row g-2">
                 {
