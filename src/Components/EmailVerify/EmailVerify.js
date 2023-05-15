@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import Translate from '../../helpers/Translate/Translate';
 import OtpInput from 'react-otp-input';
+import { useDispatch } from 'react-redux';
+import { StepperActions } from '../../Store/Stepper/Stepper';
 
 const EmailVerify = (props) => {
+    const dispatch = useDispatch();
     const [OTP, setOTP] = useState("");
     const onNext = (e) => {
         e.preventDefault();
-        
+        dispatch(StepperActions.nextStep());
+
     }
     useEffect(() => {
         console.log(OTP);
@@ -25,7 +29,7 @@ const EmailVerify = (props) => {
                             onChange={setOTP}
                             numInputs={4}
                             renderSeparator={<span>&nbsp;&nbsp;&nbsp;</span>}
-                            renderInput={(props) => { console.log(props); return <input {...props} /> }}
+                            renderInput={(props) => { console.log(props); return <input className='sard-input' {...props} /> }}
                         />
                     </div>
                     <div className='col-md-3 mt-5'>

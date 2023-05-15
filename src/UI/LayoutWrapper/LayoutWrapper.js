@@ -36,9 +36,10 @@ const LayoutWrapper = () => {
     }
 
     const getCurrentLocation = () => {
-        fetch('https://ipapi.co/json/', { mehtod: 'GET', })
+        fetch('https://ipapi.co/json/', { mehtod: 'GET' })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
             });
     }

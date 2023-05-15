@@ -1,21 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import MainBox from '../../UI/MainBox/MainBox';
 import Register from '../../Components/Register/Register';
 import EmailVerify from '../../Components/EmailVerify/EmailVerify';
 import Stepper from '../../UI/Stepper/Stepper';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { StepperActions } from '../../Store/Stepper/Stepper';
+import { authActions } from '../../Store/Auth/Auth';
+import SelectResources from '../../Components/SelectResources/SelectResources';
 
 const Auth = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+        getCurrentLocation();
         dispatch(StepperActions.setSteps(
             [
                 <Register />,
-                <EmailVerify />
+                <EmailVerify />,
+                <SelectResources />
             ]
         ));
     }, [])
+    const getCurrentLocation = () => {
+        fetch('https://ipapi.co/json/', { mehtod: 'GET' })
+            .then(res => res.json())
+            .then(data => {
+                dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
+            });
+    }
     return (
         <div className="auth-section">
             <MainBox>

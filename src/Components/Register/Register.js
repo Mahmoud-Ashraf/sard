@@ -18,22 +18,22 @@ const Register = (props) => {
                 <div className='row flex-column gy-2'>
 
                     <div className='col-md-6'>
-                        <input type='text' name='name' placeholder="الاسم" />
+                        <input className="sard-input" type='text' name='name' placeholder="الاسم" />
                     </div>
                     <div className='col-md-6'>
-                        <input type='email' name='email' placeholder="البريد الالكتروني" />
+                        <input className="sard-input" type='email' name='email' placeholder="البريد الالكتروني" />
                     </div>
                     <div className='col-md-6'>
-                        <input type='tel' name='phone' placeholder="الجوال" />
+                        <input className="sard-input" type='tel' name='phone' placeholder="الجوال" />
                     </div>
                     <div className='col-md-6'>
-                        <input type='date' name='birthdate' placeholder="تاريخ الميلاد" />
+                        <input className="sard-input" type='date' name='birthdate' placeholder="تاريخ الميلاد" />
                     </div>
                     <div className='col-md-6'>
-                        <input type='password' name='password' placeholder="كلمة المرور" />
+                        <input className="sard-input" type='password' name='password' placeholder="كلمة المرور" />
                     </div>
                     <div className='col-md-6'>
-                        <input type='password' name='confirm-password' placeholder="تأكيد كلمة المرور" />
+                        <input className="sard-input" type='password' name='confirm-password' placeholder="تأكيد كلمة المرور" />
                     </div>
                     <div className='col-md-6'>
                         <select name='sex'>

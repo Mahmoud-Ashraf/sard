@@ -9,7 +9,8 @@
         "sport": "Sport",
         "relatedNews": "Related News",
         "register": "Sign Up",
-        "email-verify": "Please enter the pin sent to your email"
+        "email-verify": "Please enter the pin sent to your email",
+        "resources": "Resources"
     },
     "searchBar": {
         "placeholder": "Search News"
