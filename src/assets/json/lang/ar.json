@@ -7,7 +7,9 @@
         "newest": "اخر الأخبار",
         "most_readed": "الأكثر قراءة",
         "sport": "رياضة",
-        "relatedNews": "اخبار ذات صلة"
+        "relatedNews": "اخبار ذات صلة",
+        "register": "تسجيل جديد",
+        "email-verify": "فضلا ادخال الرقم المرسل علي بريدك الالكتروني"
     },
     "searchBar": {
         "placeholder": "ابحث عن الخبر"

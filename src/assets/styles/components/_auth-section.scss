@@ -1,0 +1,19 @@
+.auth-section {
+    height: 100vh;
+    background-color: $main-color;
+    display: flex;
+    justify-content: center;
+    padding: 5rem 4rem;
+    align-items: center;
+
+    &-content {
+        padding: 3rem
+    }
+}
+
+.step-header {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: $main-color;
+    font-weight: 600;
+}

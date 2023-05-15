@@ -7,7 +7,9 @@
         "newest": "Latest News",
         "most_readed": "Most Readed",
         "sport": "Sport",
-        "relatedNews": "Related News"
+        "relatedNews": "Related News",
+        "register": "Sign Up",
+        "email-verify": "Please enter the pin sent to your email"
     },
     "searchBar": {
         "placeholder": "Search News"
