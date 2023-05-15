@@ -37,6 +37,7 @@ const SelectCountries = () => {
 
     useEffect(() => {
         getCountries();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div className="select-countries">

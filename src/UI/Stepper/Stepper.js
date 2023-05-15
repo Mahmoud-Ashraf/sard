@@ -9,6 +9,7 @@ const Stepper = (props) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(StepperActions.initStep());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const prevStepHandler = () => {

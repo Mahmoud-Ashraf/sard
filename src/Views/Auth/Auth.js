@@ -21,6 +21,7 @@ const Auth = () => {
                 <SelectCountries />
             ]
         ));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const getCurrentLocation = () => {
         fetch('https://ipapi.co/json/', { mehtod: 'GET' })
