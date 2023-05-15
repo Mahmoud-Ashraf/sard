@@ -1,11 +1,17 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Translate from "../../helpers/Translate/Translate";
 import { Link } from "react-router-dom";
+import { StepperActions } from "../../Store/Stepper/Stepper";
 
 const SelectResources = () => {
+    const dispatch = useDispatch();
     const logo = require('../../assets/images/logo-red.webp');
     const anotherResources = require('../../assets/images/another-resources.png');
     const countryCode = useSelector(state => state.auth.countryCode);
+    const onNext = (e) => {
+        e.preventDefault();
+        dispatch(StepperActions.nextStep());
+    }
     return (
         <div className="select-resources">
             <header>
@@ -28,7 +34,7 @@ const SelectResources = () => {
             </form>
             <div className="row">
                 <div className="col-md-3 mt-5">
-                    <button className="main-button w-100">التالي</button>
+                    <button className="main-button w-100" onClick={onNext}>التالي</button>
                 </div>
             </div>
         </div>

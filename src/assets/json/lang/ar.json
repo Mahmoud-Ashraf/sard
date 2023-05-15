@@ -10,7 +10,8 @@
         "relatedNews": "اخبار ذات صلة",
         "register": "تسجيل جديد",
         "email-verify": "فضلا ادخال الرقم المرسل علي بريدك الالكتروني",
-        "resources": "المصادر"
+        "resources": "المصادر",
+        "countries": "اختر الدول"
     },
     "searchBar": {
         "placeholder": "ابحث عن الخبر"

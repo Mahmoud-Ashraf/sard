@@ -10,7 +10,8 @@
         "relatedNews": "Related News",
         "register": "Sign Up",
         "email-verify": "Please enter the pin sent to your email",
-        "resources": "Resources"
+        "resources": "Resources",
+        "countries": "Select Countries"
     },
     "searchBar": {
         "placeholder": "Search News"

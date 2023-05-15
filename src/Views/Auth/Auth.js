@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { StepperActions } from '../../Store/Stepper/Stepper';
 import { authActions } from '../../Store/Auth/Auth';
 import SelectResources from '../../Components/SelectResources/SelectResources';
+import SelectCountries from '../../Components/SelectCountries/SelectCountries';
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,8 @@ const Auth = () => {
             [
                 <Register />,
                 <EmailVerify />,
-                <SelectResources />
+                <SelectResources />,
+                <SelectCountries />
             ]
         ));
     }, [])
