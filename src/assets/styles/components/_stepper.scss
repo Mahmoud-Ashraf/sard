@@ -1,0 +1,25 @@
+.stepper {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        &-logo {
+            width: 14.5rem;
+            max-width: 100%;
+        }
+
+        &-back {
+            width: 4rem;
+            height: 4rem;
+            background-color: lighten($main-color, 30);
+            color: $main-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+    }
+}
