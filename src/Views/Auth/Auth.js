@@ -8,6 +8,7 @@ import { StepperActions } from '../../Store/Stepper/Stepper';
 import { authActions } from '../../Store/Auth/Auth';
 import SelectResources from '../../Components/SelectResources/SelectResources';
 import SelectCountries from '../../Components/SelectCountries/SelectCountries';
+import SelectCategories from '../../Components/SelectCategories/SelectCategories';
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,8 @@ const Auth = () => {
                 <Register />,
                 <EmailVerify />,
                 <SelectResources />,
-                <SelectCountries />
+                <SelectCountries />,
+                <SelectCategories />
             ]
         ));
         // eslint-disable-next-line react-hooks/exhaustive-deps

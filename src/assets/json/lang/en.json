@@ -11,7 +11,8 @@
         "register": "Sign Up",
         "email-verify": "Please enter the pin sent to your email",
         "resources": "Resources",
-        "countries": "Select Countries"
+        "countries": "Select Countries",
+        "categories": "Select Resources"
     },
     "searchBar": {
         "placeholder": "Search News"

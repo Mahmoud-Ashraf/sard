@@ -1,0 +1,27 @@
+.select-categories {
+    &-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .category {
+            padding: 1.5rem .75rem;
+            box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 1rem;
+            input {
+                display: none;
+            }
+
+            img {
+                width: 5rem;
+                filter: grayscale(1);
+            }
+
+            &.checked {
+                background-color: #e2e2e2;
+            }
+        }
+    }
+}
