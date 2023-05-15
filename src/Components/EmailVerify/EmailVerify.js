@@ -29,7 +29,7 @@ const EmailVerify = (props) => {
                         />
                     </div>
                     <div className='col-md-3 mt-5'>
-                        <button className='w-100' type='submit' onClick={onNext}>التالي</button>
+                        <button className='w-100 main-button' type='submit' onClick={onNext}>التالي</button>
                     </div>
                 </div>
             </form>
