@@ -6,9 +6,10 @@ import Stepper from '../../UI/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
 import { StepperActions } from '../../Store/Stepper/Stepper';
 import { authActions } from '../../Store/Auth/Auth';
-import SelectResources from '../../Components/SelectResources/SelectResources';
 import SelectCountries from '../../Components/SelectCountries/SelectCountries';
 import SelectCategories from '../../Components/SelectCategories/SelectCategories';
+import SelectResourcesType from '../../Components/SelectResourcesType/SelectResourcesType';
+import SelectResources from '../../Components/SelectResources/SelectResources';
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -18,9 +19,10 @@ const Auth = () => {
             [
                 <Register />,
                 <EmailVerify />,
-                <SelectResources />,
+                <SelectResourcesType />,
                 <SelectCountries />,
-                <SelectCategories />
+                <SelectCategories />,
+                <SelectResources />
             ]
         ));
         // eslint-disable-next-line react-hooks/exhaustive-deps

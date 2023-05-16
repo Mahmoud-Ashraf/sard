@@ -10,9 +10,10 @@
         "relatedNews": "اخبار ذات صلة",
         "register": "تسجيل جديد",
         "email-verify": "فضلا ادخال الرقم المرسل علي بريدك الالكتروني",
-        "resources": "المصادر",
+        "resourcesType": "المصادر",
         "countries": "اختر الدول",
-        "categories": "المصادر"
+        "categories": "اختر الأقسام",
+        "resources": "اختر المصادر"
     },
     "searchBar": {
         "placeholder": "ابحث عن الخبر"

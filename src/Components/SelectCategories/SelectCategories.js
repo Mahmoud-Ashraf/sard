@@ -49,7 +49,7 @@ const SelectCategories = () => {
                     categories?.map(category => {
                         return (
                             <div key={category.id} className={`category ${category.is_following ? 'checked' : ''}`} onClick={() => toggleCategory(category.id)}>
-                                <input type="checkbox" checked={category.is_following} />
+                                <input type="checkbox" checked={category.is_following} onChange={onNext} />
                                 <img src={category.image} alt="category flag" />
                                 <span>{category.name_ar}</span>
                             </div>

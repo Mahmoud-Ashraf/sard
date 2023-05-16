@@ -10,9 +10,10 @@
         "relatedNews": "Related News",
         "register": "Sign Up",
         "email-verify": "Please enter the pin sent to your email",
-        "resources": "Resources",
+        "resourcesType": "Resources",
         "countries": "Select Countries",
-        "categories": "Select Resources"
+        "categories": "Select Categories",
+        "resources": "Select Resources"
     },
     "searchBar": {
         "placeholder": "Search News"

@@ -49,7 +49,7 @@ const SelectCountries = () => {
                     countries?.map(country => {
                         return (
                             <div key={country.id} className={`country ${country.is_following ? 'checked' : ''}`} onClick={() => toggleCountry(country.id)}>
-                                <input type="checkbox" checked={country.is_following} />
+                                <input type="checkbox" checked={country.is_following} onChange={onNext} />
                                 <img src={country.image} alt="country flag" />
                             </div>
                         )
