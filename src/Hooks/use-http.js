@@ -32,10 +32,13 @@ const useHTTP = () => {
             }
 
             const data = await response.json();
+            if (data.error) {
+                throw new Error(`${data.message}  ${data.errors ? ('(' + data.errors.join(', ') + ')') : ''}`);
+            }
             applyData(data);
         } catch (err) {
-            setError(err.message || 'something went wrong');
-            applyError(err);
+            setError(err.message);
+            applyError(err.message);
         }
         setIsLoading(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
