@@ -15,3 +15,11 @@ select {
 .sard-input-error {
     color: $main-color;
 }
+
+.email-verify {
+    &-form {
+        .sard-input {
+            min-width: 3rem;
+        }
+    }
+}

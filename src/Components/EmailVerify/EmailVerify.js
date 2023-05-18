@@ -8,7 +8,7 @@ import { authActions } from '../../Store/Auth/Auth';
 
 const EmailVerify = (props) => {
     const dispatch = useDispatch();
-    const { sendRequest } = useHTTP();
+    const { error, sendRequest } = useHTTP();
     const [OTP, setOTP] = useState("");
     const onNext = () => {
         dispatch(StepperActions.nextStep());
@@ -31,6 +31,9 @@ const EmailVerify = (props) => {
                 localStorage.setItem('token', data.data.api_token);
                 localStorage.setItem('user', JSON.stringify(data.data));
                 onNext();
+            },
+            err => {
+                
             }
         )
     }
@@ -42,14 +45,21 @@ const EmailVerify = (props) => {
 
             <form className='email-verify-form' onSubmit={verifyMail}>
                 <div className='row flex-column'>
-                    <div className='col-md-6'>
+                    <div className='col-md-6 d-flex justify-content-start'>
                         <OtpInput
                             value={OTP}
                             onChange={setOTP}
                             numInputs={4}
+                            inputType="number"
+                            containerStyle="flex-row-reverse"
+                            inputStyle="sard-input"
+                            shouldAutoFocus={true}
                             renderSeparator={<span>&nbsp;&nbsp;&nbsp;</span>}
-                            renderInput={(props) => { console.log(props); return <input className='sard-input' {...props} /> }}
+                            renderInput={(props) => <input {...props} />}
                         />
+                    </div>
+                    <div className='sard-input-error'>
+                        {error}
                     </div>
                     <div className='col-md-3 mt-5'>
                         <button className='w-100 main-button' type='submit'>التالي</button>
