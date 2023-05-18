@@ -8,7 +8,7 @@ import { authActions } from '../../Store/Auth/Auth';
 
 const Register = (props) => {
     const dispatch = useDispatch();
-    const { sendRequest } = useHTTP();
+    const { error, sendRequest } = useHTTP();
     const onNext = (e) => {
         dispatch(StepperActions.nextStep());
     }
@@ -24,6 +24,9 @@ const Register = (props) => {
                 localStorage.setItem('token', data.data.api_token);
                 localStorage.setItem('user', JSON.stringify(data.data));
                 onNext();
+            },
+            err => {
+
             }
         )
     }
@@ -113,6 +116,9 @@ const Register = (props) => {
                             <div className='sard-input-error'>
                                 <ErrorMessage name="gender" />
                             </div>
+                        </div>
+                        <div className='sard-input-error'>
+                            {error}
                         </div>
                         <div className='col-md-3 mt-5'>
                             <button className='w-100 main-button' type='submit'>التالي</button>
