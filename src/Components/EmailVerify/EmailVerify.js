@@ -14,9 +14,6 @@ const EmailVerify = (props) => {
         dispatch(StepperActions.nextStep());
 
     }
-    useEffect(() => {
-        console.log(OTP);
-    }, [OTP]);
 
     const verifyMail = (e) => {
         e.preventDefault()

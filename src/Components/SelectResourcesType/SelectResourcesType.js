@@ -7,7 +7,7 @@ const SelectResourcesType = () => {
     const dispatch = useDispatch();
     const logo = require('../../assets/images/logo-red.webp');
     const anotherResources = require('../../assets/images/another-resources.png');
-    const countryCode = useSelector(state => state.auth.countryCode);
+    const user = useSelector(state => state.auth.user);
     const onNext = (e) => {
         e.preventDefault();
         dispatch(StepperActions.nextStep());
@@ -17,7 +17,7 @@ const SelectResourcesType = () => {
             <header>
                 <h2 className="step-header"><Translate id="titles.resourcesType" /></h2>
             </header>
-            <p>تم تحديد موقعك {countryCode} <Link>لتغيير الدولة او إضافة دول اخرى</Link></p>
+            <p>تم تحديد موقعك {user?.country?.name_ar} <Link>لتغيير الدولة او إضافة دول اخرى</Link></p>
             <form className="resources-options">
                 <div className="resources-option">
                     <img src={logo} alt="sard logo" />

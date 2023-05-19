@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import useHTTP from '../../Hooks/use-http';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from 'react-bootstrap/Dropdown';
 import SearchBar from "../searchBar/searchBar";
@@ -60,8 +60,8 @@ const Header = () => {
             )
         }
     }
-    
- 
+
+
     useEffect(() => {
         getCategories();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,40 +78,47 @@ const Header = () => {
             <header className="header" id="header">
                 <div className="header-top text-white">
                     <div className="container header-top-content">
-                        <Dropdown>
-                            <Dropdown.Toggle className='text-white' variant="transperent" id="dropdown-basic">
-                                <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
-                                <span className="btn me-3 text-white">{user.name_ar} مرحباً </span>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1" className='actions d-flex justify-content-between m-1'>
-                                    <span>
-                                        حسابي
-                                    </span>
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" className='actions d-flex justify-content-between m-1'>
-                                    <span>
-                                        الاعدادات
-                                    </span>
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </Dropdown.Item>
-                                <Dropdown.Item href="#/action-3" className='actions d-flex justify-content-between m-1'>
-                                    <span>
-                                        التنبيهات
-                                    </span>
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </Dropdown.Item>
-                                <br />
-                                <hr />
-                                <Dropdown.Item href="#/action-4" className='actions d-flex justify-content-between mt-2'>
-                                    <span>
-                                        تسجيل الخروج
-                                    </span>
-                                    <i class="fa-solid fa-circle-chevron-right icon-danger"></i>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        {
+                            user?.name ?
+                                <Dropdown>
+                                    <Dropdown.Toggle className='text-white' variant="transperent" id="dropdown-basic">
+                                        <i className="fa-regular fa-user border rounded-circle border-white p-1 text-white justify-content-center align-items-center"></i>
+                                        <span className="btn me-3 text-white">{user?.name} مرحباً </span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="#/action-1" className='actions d-flex justify-content-between m-1'>
+                                            <span>
+                                                حسابي
+                                            </span>
+                                            <i className="fa-solid fa-chevron-left"></i>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className='actions d-flex justify-content-between m-1'>
+                                            <span>
+                                                الاعدادات
+                                            </span>
+                                            <i className="fa-solid fa-chevron-left"></i>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item href="#/action-3" className='actions d-flex justify-content-between m-1'>
+                                            <span>
+                                                التنبيهات
+                                            </span>
+                                            <i className="fa-solid fa-chevron-left"></i>
+                                        </Dropdown.Item>
+                                        <br />
+                                        <hr />
+                                        <Dropdown.Item href="#/action-4" className='actions d-flex justify-content-between mt-2'>
+                                            <span>
+                                                تسجيل الخروج
+                                            </span>
+                                            <i className="fa-solid fa-circle-chevron-right icon-danger"></i>
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                                :
+                                <div>
+                                    <Link className='text-white text-decoration-none' to='/register'>تسجيل جديد</Link> / <Link className='text-white text-decoration-none' to='/register'>تسجيل دخول</Link>
+                                </div>
+                        }
 
                         <div className="d-flex justify-content-center align-items-center">
                             <span>{ksaData} هجريا , الموافق {egDate} ميلادي</span>

@@ -15,7 +15,7 @@ const LayoutWrapper = () => {
     const countryCode = useSelector(state => state.auth.countryCode);
     const getGuestToken = () => {
         const token = localStorage.getItem('token');
-        const user = localStorage.getItem('user');
+        const user = JSON.parse(localStorage.getItem('user'));
         if (token && user) {
             dispatch(authActions.setUser({ token, user }));
         }
@@ -41,7 +41,6 @@ const LayoutWrapper = () => {
         fetch('https://ipapi.co/json/', { mehtod: 'GET' })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
             });
     }
@@ -51,7 +50,6 @@ const LayoutWrapper = () => {
             .then(res => res.json())
             .then(resualt => {
                 dispatch(authActions.setTemperature({ temp: resualt.current.temp_c }))
-                console.log(resualt);
             })
     }
     useEffect(() => {

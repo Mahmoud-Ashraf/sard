@@ -16,7 +16,6 @@ const stepperSlice = createSlice({
             state.activeStep = (state.activeStep <= 0) ? state.activeStep : state.activeStep - 1;
         },
         setSteps(state, action) {
-            console.log(action.payload);
             state.steps = action.payload;
         }
     }
