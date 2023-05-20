@@ -105,6 +105,9 @@
     &-tab {
         max-height: 14.5rem;
         overflow-y: auto;
+        .tab-content .tab-pane {
+            max-height: unset;
+        }
 
     }
 }
