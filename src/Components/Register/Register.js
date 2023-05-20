@@ -5,13 +5,15 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import useHTTP from '../../Hooks/use-http';
 import { authActions } from '../../Store/Auth/Auth';
+import { useNavigate } from 'react-router-dom';
 
 const Register = (props) => {
     const dispatch = useDispatch();
     const { error, sendRequest } = useHTTP();
-    const onNext = (e) => {
-        dispatch(StepperActions.nextStep());
-    }
+    const navigate = useNavigate()
+    // const onNext = (e) => {
+    //     dispatch(StepperActions.nextStep());
+    // }
     const register = (data) => {
         sendRequest(
             {
@@ -23,7 +25,7 @@ const Register = (props) => {
                 dispatch(authActions.setUser({ token: data.data.api_token, user: data.data }));
                 localStorage.setItem('token', data.data.api_token);
                 localStorage.setItem('user', JSON.stringify(data.data));
-                onNext();
+                navigate('/auth/verify-mail');
             },
             err => {
 
