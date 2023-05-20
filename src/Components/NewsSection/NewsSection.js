@@ -22,14 +22,15 @@ const NewsSection = () => {
         return categoriesArr.find(category => category.code === categoryCode)?.id;
     });
     useEffect(() => {
-        if (token && categoryId) {
+        console.log(categoryId);
+        if (token && (categoryId || categoryCode)) {
             setShowLoader(true);
             setPage(1);
             dispatch(NewsActions.customNews({ ['category' + categoryCode]: [] }));
             getNews(1);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, categoryId]);
+    }, [token, categoryId, categoryCode]);
     useEffect(() => {
         // console.log(page);
         if (page > 1) {
@@ -50,9 +51,10 @@ const NewsSection = () => {
 
     const getNews = (currentPage) => {
         if (token) {
+            const url = categoryId ? `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=${currentPage}&paginate=10` : `get_home_newss?filter_type=${categoryCode}&page=${currentPage}&paginate=10`
             sendRequest(
                 {
-                    url: `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=${currentPage}&paginate=10`
+                    url: url
                 },
                 data => {
                     const newData = data.data;

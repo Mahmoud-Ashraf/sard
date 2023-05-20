@@ -17,7 +17,6 @@ const RelatedNews = (props) => {
                     method: 'GET'
                 },
                 data => {
-                    console.log(data);
                     setRelatedNews(data.data);
                 }
             )
