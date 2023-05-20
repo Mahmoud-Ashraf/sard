@@ -10,6 +10,12 @@ import SearhResult from "./Components/SearchResult/SearchResult";
 import NewsSection from "./Components/NewsSection/NewsSection";
 import ReadFromSource from "./Views/ReadFromSource/ReadFromSource";
 import Auth from "./Views/Auth/Auth";
+import Register from "./Components/Register/Register";
+import EmailVerify from "./Components/EmailVerify/EmailVerify";
+import SelectResourcesType from "./Components/SelectResourcesType/SelectResourcesType";
+import SelectCategories from "./Components/SelectCategories/SelectCategories";
+import SelectResources from "./Components/SelectResources/SelectResources";
+import SelectCountries from "./Components/SelectCountries/SelectCountries";
 
 function App() {
   // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -17,6 +23,14 @@ function App() {
   const globalLang = useSelector((state) => {
     return state.lang.globalLang;
   });
+  const user = useSelector(state => state.auth.user);
+
+  const checkLogedinLoader = () => {
+    if (user.name) {
+      return redirect("/home");
+    }
+    return null;
+  }
 
   useEffect(() => {
     if (rootEle) {
@@ -46,7 +60,7 @@ function App() {
           path: '/home',
           element: <Home />
         },
-        
+
         {
           path: '/news',
           element: <NewsPage />,
@@ -72,8 +86,39 @@ function App() {
       ],
     },
     {
-      path: '/register',
-      element: <Auth />
+      path: '/auth',
+      element: <Auth />,
+      children: [
+        {
+          path: 'register',
+          element: <Register />,
+          loader: checkLogedinLoader
+        },
+        {
+          path: 'login',
+          loader: checkLogedinLoader
+        },
+        {
+          path: 'verify-mail',
+          element: <EmailVerify />
+        },
+        {
+          path: 'resources-type',
+          element: <SelectResourcesType />
+        },
+        {
+          path: 'countries',
+          element: <SelectCountries />
+        },
+        {
+          path: 'categories',
+          element: <SelectCategories />
+        },
+        {
+          path: 'resources',
+          element: <SelectResources />
+        }
+      ]
     },
     {
       path: "*",

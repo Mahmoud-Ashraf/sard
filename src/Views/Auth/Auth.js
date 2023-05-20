@@ -1,34 +1,37 @@
 import { useEffect } from 'react';
 import MainBox from '../../UI/MainBox/MainBox';
-import Register from '../../Components/Register/Register';
-import EmailVerify from '../../Components/EmailVerify/EmailVerify';
-import Stepper from '../../UI/Stepper/Stepper';
+// import Register from '../../Components/Register/Register';
+// import EmailVerify from '../../Components/EmailVerify/EmailVerify';
+// import Stepper from '../../UI/Stepper/Stepper';
 import { useDispatch, useSelector } from 'react-redux';
-import { StepperActions } from '../../Store/Stepper/Stepper';
+// import { StepperActions } from '../../Store/Stepper/Stepper';
 import { authActions } from '../../Store/Auth/Auth';
-import SelectCountries from '../../Components/SelectCountries/SelectCountries';
-import SelectCategories from '../../Components/SelectCategories/SelectCategories';
-import SelectResourcesType from '../../Components/SelectResourcesType/SelectResourcesType';
-import SelectResources from '../../Components/SelectResources/SelectResources';
+// import SelectCountries from '../../Components/SelectCountries/SelectCountries';
+// import SelectCategories from '../../Components/SelectCategories/SelectCategories';
+// import SelectResourcesType from '../../Components/SelectResourcesType/SelectResourcesType';
+// import SelectResources from '../../Components/SelectResources/SelectResources';
 import useHTTP from '../../Hooks/use-http';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const Auth = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { sendRequest } = useHTTP();
     const countryCode = useSelector(state => state.auth.countryCode);
+    const logo = require('../../assets/images/logo-red.webp');
 
     useEffect(() => {
         getCurrentLocation();
-        dispatch(StepperActions.setSteps(
-            [
-                <Register />,
-                <EmailVerify />,
-                <SelectResourcesType />,
-                <SelectCountries />,
-                <SelectCategories />,
-                <SelectResources />
-            ]
-        ));
+        // dispatch(StepperActions.setSteps(
+        //     [
+        //         <Register />,
+        //         <EmailVerify />,
+        //         <SelectResourcesType />,
+        //         <SelectCountries />,
+        //         <SelectCategories />,
+        //         <SelectResources />
+        //     ]
+        // ));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -71,7 +74,13 @@ const Auth = () => {
         <div className="auth-section">
             <MainBox>
                 <div className='auth-section-content'>
-                    <Stepper />
+                    <header className="stepper-header">
+                        <img className='stepper-header-logo' src={logo} alt='sard logo' />
+                        <div className="stepper-header-back" onClick={() => navigate(-1)}>
+                            <i className="fa-solid fa-arrow-left"></i>
+                        </div>
+                    </header>
+                    <Outlet />
                 </div>
             </MainBox>
         </div>
