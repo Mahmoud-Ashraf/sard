@@ -16,6 +16,7 @@ import SelectResourcesType from "./Components/SelectResourcesType/SelectResource
 import SelectCategories from "./Components/SelectCategories/SelectCategories";
 import SelectResources from "./Components/SelectResources/SelectResources";
 import SelectCountries from "./Components/SelectCountries/SelectCountries";
+import Login from "./Components/Login/Login";
 
 function App() {
   // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -101,6 +102,7 @@ function App() {
         },
         {
           path: 'login',
+          element: <Login />
           // loader: checkLogedinLoader
         },
         {

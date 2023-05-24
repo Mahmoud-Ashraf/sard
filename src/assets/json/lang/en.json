@@ -20,7 +20,8 @@
     },
     "buttons": {
         "cancel": "cancel",
-        "showMore": "Show More"
+        "showMore": "Show More",
+        "login": "login"
     },
     "showAll": "Show All ►"
 }

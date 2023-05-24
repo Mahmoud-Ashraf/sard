@@ -20,7 +20,8 @@
     },
     "buttons": {
         "cancel": "إلغاء",
-        "showMore": "عرض المزيد"
+        "showMore": "عرض المزيد",
+        "login": "تسجيل دخول"
     },
     "showAll": "رؤية الكل ◄"
 }
