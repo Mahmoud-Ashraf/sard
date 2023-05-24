@@ -25,13 +25,13 @@ function App() {
   });
   const user = useSelector(state => state.auth.user);
 
-  const checkLogedinLoader = () => {
-    console.log(user);
-    // if (user.name) {
-    //   return redirect("/home");
-    // }
-    return null;
-  }
+  // const checkLogedinLoader = () => {
+  //   console.log(user);
+  //   // if (user.name) {
+  //   //   return redirect("/home");
+  //   // }
+  //   return null;
+  // }
 
   useEffect(() => {
     if (rootEle) {
