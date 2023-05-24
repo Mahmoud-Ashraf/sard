@@ -23,7 +23,7 @@ function App() {
   const globalLang = useSelector((state) => {
     return state.lang.globalLang;
   });
-  const user = useSelector(state => state.auth.user);
+  // const user = useSelector(state => state.auth.user);
 
   // const checkLogedinLoader = () => {
   //   console.log(user);
