@@ -1,24 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Translate from "../../helpers/Translate/Translate";
 import { Link, useNavigate } from "react-router-dom";
-import { StepperActions } from "../../Store/Stepper/Stepper";
 
 const SelectResourcesType = () => {
-    const dispatch = useDispatch();
     const logo = require('../../assets/images/logo-red.webp');
     const anotherResources = require('../../assets/images/another-resources.png');
     const user = useSelector(state => state.auth.user);
     const navigate = useNavigate()
     const selectResourcesType = (e) => {
         e.preventDefault();
-        console.log(e.target.elements);
+        if (e.target.elements.resources.value === "1") {
+            navigate('/auth/categories');
+        } else {
+            navigate('/home');
+        }
     }
     return (
         <div className="select-resources">
             <header>
                 <h2 className="step-header"><Translate id="titles.resourcesType" /></h2>
             </header>
-            <p>تم تحديد موقعك {user?.country?.name_ar} <Link>لتغيير الدولة او إضافة دول اخرى</Link></p>
+            <p>تم تحديد موقعك {user?.country?.name_ar} <Link to="/auth/countries">لتغيير الدولة او إضافة دول اخرى</Link></p>
             <form onSubmit={selectResourcesType}>
                 <div className="resources-options">
 

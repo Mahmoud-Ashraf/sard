@@ -90,6 +90,10 @@ function App() {
       element: <Auth />,
       children: [
         {
+          path:'',
+          loader: () => redirect('register')
+        },
+        {
           path: 'register',
           element: <Register />,
           loader: checkLogedinLoader
