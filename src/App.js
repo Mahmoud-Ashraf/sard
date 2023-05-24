@@ -26,9 +26,10 @@ function App() {
   const user = useSelector(state => state.auth.user);
 
   const checkLogedinLoader = () => {
-    if (user.name) {
-      return redirect("/home");
-    }
+    console.log(user);
+    // if (user.name) {
+    //   return redirect("/home");
+    // }
     return null;
   }
 
@@ -96,11 +97,11 @@ function App() {
         {
           path: 'register',
           element: <Register />,
-          loader: checkLogedinLoader
+          // loader: checkLogedinLoader
         },
         {
           path: 'login',
-          loader: checkLogedinLoader
+          // loader: checkLogedinLoader
         },
         {
           path: 'verify-mail',

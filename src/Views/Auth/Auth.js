@@ -1,15 +1,7 @@
 import { useEffect } from 'react';
 import MainBox from '../../UI/MainBox/MainBox';
-// import Register from '../../Components/Register/Register';
-// import EmailVerify from '../../Components/EmailVerify/EmailVerify';
-// import Stepper from '../../UI/Stepper/Stepper';
 import { useDispatch, useSelector } from 'react-redux';
-// import { StepperActions } from '../../Store/Stepper/Stepper';
 import { authActions } from '../../Store/Auth/Auth';
-// import SelectCountries from '../../Components/SelectCountries/SelectCountries';
-// import SelectCategories from '../../Components/SelectCategories/SelectCategories';
-// import SelectResourcesType from '../../Components/SelectResourcesType/SelectResourcesType';
-// import SelectResources from '../../Components/SelectResources/SelectResources';
 import useHTTP from '../../Hooks/use-http';
 import { Outlet, useNavigate } from 'react-router-dom';
 
@@ -19,34 +11,29 @@ const Auth = () => {
     const { sendRequest } = useHTTP();
     const countryCode = useSelector(state => state.auth.countryCode);
     const logo = require('../../assets/images/logo-red.webp');
+    const user = useSelector(state => state.auth.user);
 
     useEffect(() => {
-        getCurrentLocation();
-        // dispatch(StepperActions.setSteps(
-        //     [
-        //         <Register />,
-        //         <EmailVerify />,
-        //         <SelectResourcesType />,
-        //         <SelectCountries />,
-        //         <SelectCategories />,
-        //         <SelectResources />
-        //     ]
-        // ));
+        console.log(user);
+        if (user.name) {
+            navigate('/home');
+        }
+        // getCurrentLocation();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [user]);
 
     useEffect(() => {
         getGuestToken();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryCode]);
 
-    const getCurrentLocation = () => {
-        fetch('https://ipapi.co/json/', { mehtod: 'GET' })
-            .then(res => res.json())
-            .then(data => {
-                dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
-            });
-    }
+    // const getCurrentLocation = () => {
+    //     fetch('https://ipapi.co/json/', { mehtod: 'GET' })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
+    //         });
+    // }
     const getGuestToken = () => {
         const token = localStorage.getItem('token');
         const user = JSON.parse(localStorage.getItem('user'));

@@ -61,7 +61,7 @@ const EmailVerify = (props) => {
                                         value={OTP}
                                         onChange={setOTP}
                                         numInputs={4}
-                                        inputType="number"
+                                        inputType="text"
                                         containerStyle="flex-row-reverse"
                                         inputStyle="sard-input"
                                         shouldAutoFocus={true}

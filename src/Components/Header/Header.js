@@ -116,7 +116,7 @@ const Header = () => {
                                 </Dropdown>
                                 :
                                 <div>
-                                    <Link className='text-white text-decoration-none' to='/register'>تسجيل جديد</Link> / <Link className='text-white text-decoration-none' to='/register'>تسجيل دخول</Link>
+                                    <Link className='text-white text-decoration-none' to='/auth/register'>تسجيل جديد</Link> / <Link className='text-white text-decoration-none' to='/auth/login'>تسجيل دخول</Link>
                                 </div>
                         }
 
