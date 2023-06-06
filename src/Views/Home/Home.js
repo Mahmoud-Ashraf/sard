@@ -18,17 +18,19 @@ const Home = () => {
     const { isLoading, sendRequest } = useHTTP();
     const dispatch = useDispatch();
     useEffect(() => {
-        categories.forEach(category => {
+        const categoriesWithoutSport = categories.filter(category => category.id !== 3);
+        categoriesWithoutSport?.forEach(category => {
             sendRequest(
                 {
                     url: `get_home_newss?categories_arr[0]=${category.id}&filter_type=all&paginate=5&page=1`,
                     method: 'GET'
                 },
                 data => {
+                    // const categories = data.data.filter(category => category.id !== 3);
                     dispatch(NewsActions.customNews({ ['category' + category.code]: data.data }));
                 },
                 err => {
-                    
+
                 }
             )
         });
