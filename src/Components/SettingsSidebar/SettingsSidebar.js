@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { authActions } from "../../Store/Auth/Auth";
 
 const SettingsSidebar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const logout = () => {
+        dispatch(authActions.logout());
+        navigate('/home');
+    }
     return (
         <div className="sidebar">
             <div className="list">
@@ -20,7 +28,7 @@ const SettingsSidebar = () => {
             <div className="list">
                 <h4 className="list-title">تسجيل الخروج</h4>
                 <ul className="list-content">
-                    <Link className="list-item"><i className="fa-solid fa-arrow-right"></i> <li>تسجيل الخروج</li></Link>
+                    <div onClick={logout} className="list-item"><i className="fa-solid fa-arrow-right"></i> <li>تسجيل الخروج</li></div>
                 </ul>
             </div>
         </div>
