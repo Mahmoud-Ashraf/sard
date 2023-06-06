@@ -22,12 +22,14 @@ const NewsSection = () => {
         return categoriesArr.find(category => category.code === categoryCode)?.id;
     });
     useEffect(() => {
-        console.log(categoryId);
         if (token && (categoryId || categoryCode)) {
             setShowLoader(true);
             setPage(1);
             dispatch(NewsActions.customNews({ ['category' + categoryCode]: [] }));
             getNews(1);
+        }
+        return () => {
+            setCategoryId('');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, categoryId, categoryCode]);
@@ -51,26 +53,35 @@ const NewsSection = () => {
 
     const getNews = (currentPage) => {
         if (token) {
-            const url = categoryId ? `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=${currentPage}&paginate=10` : `get_home_newss?filter_type=${categoryCode}&page=${currentPage}&paginate=10`
-            sendRequest(
-                {
-                    url: url
-                },
-                data => {
-                    const newData = data.data;
-                    // setNews([...news, ...newData]);
-                    setNextPage(data.pagination.next_page);
-                    if (data.pagination.current_page === 1) {
-                        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...newData] }));
-                    } else {
-                        dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...news, ...newData] }));
-                    }
-                    setShowLoader(false);
-                },
-                err => {
+            let url = '';
+            if (categoryId) {
+                url = `get_home_newss?categories_arr[0]=${categoryId}&filter_type=all&page=${currentPage}&paginate=10`;
+            } else if (!categoryId && typeof(categoryId) !== 'string') {
+                url = `get_home_newss?filter_type=${categoryCode}&page=${currentPage}&paginate=10`;
+            }
 
-                }
-            )
+            if (url) {
+                sendRequest(
+                    {
+                        url: url
+                    },
+                    data => {
+                        const newData = data.data;
+                        // setNews([...news, ...newData]);
+                        setNextPage(data.pagination.next_page);
+                        if (data.pagination.current_page === 1) {
+                            dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...newData] }));
+                        } else {
+                            dispatch(NewsActions.customNews({ ['category' + categoryCode]: [...news, ...newData] }));
+                        }
+                        setShowLoader(false);
+                    },
+                    err => {
+
+                    }
+                )
+            }
+
         }
     }
 

@@ -48,7 +48,7 @@ const SelectCategories = () => {
                 }
             },
             data => {
-                navigate('/auth/resources');
+                navigate('../resources');
             },
             err => {
 

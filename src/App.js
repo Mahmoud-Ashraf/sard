@@ -17,6 +17,7 @@ import SelectCategories from "./Components/SelectCategories/SelectCategories";
 import SelectResources from "./Components/SelectResources/SelectResources";
 import SelectCountries from "./Components/SelectCountries/SelectCountries";
 import Login from "./Components/Login/Login";
+import Settings from "./Views/Settings/Settings";
 
 function App() {
   // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -84,7 +85,25 @@ function App() {
         {
           path: '/source/:newsId',
           element: <ReadFromSource />
-        }
+        },
+        {
+          path: '/settings',
+          element: <Settings />,
+          children: [
+            {
+              path: 'countries',
+              element: <SelectCountries />
+            },
+            {
+              path: 'categories',
+              element: <SelectCategories />
+            },
+            {
+              path: 'resources',
+              element: <SelectResources />
+            }
+          ]
+        },
       ],
     },
     {
@@ -92,7 +111,7 @@ function App() {
       element: <Auth />,
       children: [
         {
-          path:'',
+          path: '',
           loader: () => redirect('register')
         },
         {

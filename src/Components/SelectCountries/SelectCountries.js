@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import useHTTP from "../../Hooks/use-http";
 import Translate from "../../helpers/Translate/Translate";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Loader from '../../Components/Loader/Loader';
 const SelectCountries = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { isLoading, sendRequest } = useHTTP();
     const [countries, setCountries] = useState([]);
     const token = useSelector(state => state.auth.token);
@@ -48,7 +49,11 @@ const SelectCountries = () => {
                 }
             },
             data => {
-                navigate('/auth/resources-type')
+                if (location.pathname.includes('settings')) {
+                    navigate('../categories');
+                } else {
+                    navigate('../resources-type')
+                }
             },
             err => {
 

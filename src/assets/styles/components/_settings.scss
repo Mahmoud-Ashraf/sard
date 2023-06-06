@@ -1,0 +1,49 @@
+.settings {
+    &-header {
+        &-username {
+            color: $main-color;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .sidebar {
+        padding: 1.5rem;
+        .list {
+            &-title {
+                font-size: 1.2rem;
+                color: $main-color;
+                font-weight: 600;
+                margin-bottom: 1.8rem;
+            }
+
+            &-content {
+                padding: 0;
+                list-style-type: none;
+                margin-bottom: 4rem;
+            }
+
+            &-item {
+                text-decoration: none;
+                color: $text-color;
+                margin-bottom: 2.4rem;
+                position: relative;
+                display: block;
+                li {
+                    display: inline-block;
+                    margin-inline-start: .5rem;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -1.2rem;
+                    left: 0;
+                    right: 0;
+                    border-bottom: 1px solid $text-color;
+                    opacity: .3;
+                }
+            }
+        }
+    }
+}

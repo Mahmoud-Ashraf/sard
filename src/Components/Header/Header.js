@@ -86,27 +86,29 @@ const Header = () => {
                                         <span className="btn me-3 text-white">مرحباً {user.name}</span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1" className='actions d-flex justify-content-between m-1'>
+                                        <Dropdown.Item href="/settings" className='actions d-flex justify-content-between m-1'>
                                             <span>
                                                 حسابي
                                             </span>
                                             <i className="fa-solid fa-chevron-left"></i>
                                         </Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2" className='actions d-flex justify-content-between m-1'>
-                                            <span>
-                                                الاعدادات
-                                            </span>
-                                            <i className="fa-solid fa-chevron-left"></i>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3" className='actions d-flex justify-content-between m-1'>
-                                            <span>
-                                                التنبيهات
-                                            </span>
-                                            <i className="fa-solid fa-chevron-left"></i>
-                                        </Dropdown.Item>
+                                        {
+                                            // <Dropdown.Item href="#/action-2" className='actions d-flex justify-content-between m-1'>
+                                            //     <span>
+                                            //         الاعدادات
+                                            //     </span>
+                                            //     <i className="fa-solid fa-chevron-left"></i>
+                                            // </Dropdown.Item>
+                                            // <Dropdown.Item href="#/action-3" className='actions d-flex justify-content-between m-1'>
+                                            //     <span>
+                                            //         التنبيهات
+                                            //     </span>
+                                            //     <i className="fa-solid fa-chevron-left"></i>
+                                            // </Dropdown.Item>
+                                        }
                                         <br />
                                         <hr />
-                                        <Dropdown.Item href="#/action-4" className='actions d-flex justify-content-between mt-2'>
+                                        <Dropdown.Item href="#" className='actions d-flex justify-content-between mt-2'>
                                             <span>
                                                 تسجيل الخروج
                                             </span>
@@ -154,7 +156,7 @@ const Header = () => {
                     <div className='container'>
                         <div className='row gx-4 align-items-center'>
                             <NavLink to='/home' activeclassname='active-link' className='col-auto'>الصفحة الرئيسية</NavLink>
-                            <NavLink to='/latest' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink>
+                            {/* <NavLink to='/news/newest' activeclassname='active-link' className='col-auto'>أحدث الأخبار</NavLink> */}
                             {
                                 categories.map(category => {
                                     return (

@@ -14,11 +14,10 @@ const Auth = () => {
     const user = useSelector(state => state.auth.user);
 
     useEffect(() => {
-        console.log(user);
         if (user.name) {
             navigate('/home');
         }
-        // getCurrentLocation();
+        getCurrentLocation();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
@@ -27,13 +26,13 @@ const Auth = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryCode]);
 
-    // const getCurrentLocation = () => {
-    //     fetch('https://ipapi.co/json/', { mehtod: 'GET' })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
-    //         });
-    // }
+    const getCurrentLocation = () => {
+        fetch('https://ipapi.co/json/', { mehtod: 'GET' })
+            .then(res => res.json())
+            .then(data => {
+                dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
+            });
+    }
     const getGuestToken = () => {
         const token = localStorage.getItem('token');
         const user = JSON.parse(localStorage.getItem('user'));
