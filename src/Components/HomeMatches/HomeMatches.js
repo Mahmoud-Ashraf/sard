@@ -22,6 +22,9 @@ const HomeMatches = () => {
                     const formatedDate = formatDate(todayDate)
                     let newData = Object.values(data.data[formatedDate]);
                     setTodayResults(newData);
+                },
+                err => {
+                    
                 }
             )
         }

@@ -18,6 +18,7 @@ import SelectResources from "./Components/SelectResources/SelectResources";
 import SelectCountries from "./Components/SelectCountries/SelectCountries";
 import Login from "./Components/Login/Login";
 import Settings from "./Views/Settings/Settings";
+import Live from "./Views/Live/Live";
 
 function App() {
   // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -91,6 +92,10 @@ function App() {
           element: <Settings />,
           children: [
             {
+              path: '',
+              loader: () => redirect('countries')
+            },
+            {
               path: 'countries',
               element: <SelectCountries />
             },
@@ -104,6 +109,10 @@ function App() {
             }
           ]
         },
+        {
+          path: '/live',
+          element: <Live />
+        }
       ],
     },
     {

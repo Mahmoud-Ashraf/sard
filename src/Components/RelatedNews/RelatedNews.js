@@ -18,6 +18,9 @@ const RelatedNews = (props) => {
                 },
                 data => {
                     setRelatedNews(data.data);
+                },
+                err => {
+                    
                 }
             )
         }

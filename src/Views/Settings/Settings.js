@@ -23,7 +23,7 @@ const Settings = () => {
                             <SettingsSidebar />
                         </MainBox>
                     </div>
-                    <div className="col-md-8" id="test">
+                    <div className="col-md-8">
                         <MainBox>
                             <Outlet />
                         </MainBox>

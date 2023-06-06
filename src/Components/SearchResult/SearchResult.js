@@ -23,6 +23,9 @@ const SearhResult = () => {
             },
             data => {
                 setNews(data.data);
+            },
+            err => {
+                
             }
         )
 

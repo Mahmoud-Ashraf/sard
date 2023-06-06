@@ -20,6 +20,9 @@ const ReadFromSource = () => {
                 },
                 data => {
                     setUrl(data.data?.link_url)
+                },
+                err => {
+                    
                 }
             )
         }

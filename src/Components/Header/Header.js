@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useHTTP from '../../Hooks/use-http';
 import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import SearchBar from "../searchBar/searchBar";
 import { NewsActions } from '../../Store/News/News';
 // import { authActions} from '../../Store/Auth/Auth'
 import Loader from '../Loader/Loader';
+import { authActions } from '../../Store/Auth/Auth';
 
 
 
@@ -35,6 +36,7 @@ const Header = () => {
     const { isLoading, sendRequest } = useHTTP();
     // const [categories, setCategories] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const token = useSelector((state) => {
         return state.auth.token;
     });
@@ -66,6 +68,11 @@ const Header = () => {
         getCategories();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
+
+    const logout = () => {
+        dispatch(authActions.logout());
+        navigate('/home');
+    }
     const [isFocus, setIsFocus] = useState(false);
     const showSearchBar = () => {
         setIsFocus(current => !current);
@@ -108,7 +115,7 @@ const Header = () => {
                                         }
                                         <br />
                                         <hr />
-                                        <Dropdown.Item href="#" className='actions d-flex justify-content-between mt-2'>
+                                        <Dropdown.Item onClick={logout} className='actions d-flex justify-content-between mt-2'>
                                             <span>
                                                 تسجيل الخروج
                                             </span>
@@ -139,7 +146,7 @@ const Header = () => {
                         <img className='header-middle-logo' src={logo} alt='sard logo' />
                         <div className='row gx-4 align-items-center'>
                             <div className='col-auto'>
-                                <Link to="/">
+                                <Link to="/live">
                                     <img className='header-middle-icons' src={live} alt='live' />
                                 </Link>
                             </div>

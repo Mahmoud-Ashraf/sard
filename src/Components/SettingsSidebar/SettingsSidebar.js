@@ -6,7 +6,7 @@ const SettingsSidebar = () => {
             <div className="list">
                 <h4 className="list-title">الإعدادات</h4>
                 <ul className="list-content">
-                    <Link to="#test" className="list-item"><i className="fa-solid fa-grip-vertical"></i> <li>تعديل المصادر</li></Link>
+                    <Link to="countries" className="list-item"><i className="fa-solid fa-grip-vertical"></i> <li>تعديل المصادر</li></Link>
                 </ul>
             </div>
             <div className="list">

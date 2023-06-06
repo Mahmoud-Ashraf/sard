@@ -26,6 +26,9 @@ const Home = () => {
                 },
                 data => {
                     dispatch(NewsActions.customNews({ ['category' + category.code]: data.data }));
+                },
+                err => {
+                    
                 }
             )
         });

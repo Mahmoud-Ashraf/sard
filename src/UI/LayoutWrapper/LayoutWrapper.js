@@ -38,11 +38,13 @@ const LayoutWrapper = () => {
     }
 
     const getCurrentLocation = () => {
-        fetch('https://ipapi.co/json/', { mehtod: 'GET' })
-            .then(res => res.json())
-            .then(data => {
-                dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
-            });
+        if (!countryCode) {
+            fetch('https://ipapi.co/json/', { mehtod: 'GET' })
+                .then(res => res.json())
+                .then(data => {
+                    dispatch(authActions.setLocation({ long: data.longitude, lat: data.latitude, countryCode: data.country_code }))
+                });
+        }
     }
     const getWeatherTempreature = () => {
         fetch(`http://api.weatherapi.com/v1/current.json?key=d5f4ef18f3ac4a409bf224727230505&q=${lat},${long}&aqi=no
@@ -60,9 +62,6 @@ const LayoutWrapper = () => {
     }, [long, lat]);
     useEffect(() => {
         getCurrentLocation();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    useEffect(() => {
         getGuestToken();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryCode])

@@ -47,6 +47,9 @@ const SelectResources = () => {
                 },
                 data => {
                     setResources(data.data);
+                },
+                err => {
+                    
                 }
             )
         }
