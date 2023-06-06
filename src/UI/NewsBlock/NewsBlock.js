@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NewsSlider from '../../Components/NewsSlider/NewsSlider';
+import ShareButtons from '../../Components/ShareButtons/ShareButtons';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const NewsBlock = (props) => {
     const share = require('../../assets/images/share.webp');
@@ -39,7 +41,12 @@ const NewsBlock = (props) => {
                         {props.sliderNews && <NewsSlider news={props.sliderNews} onSliderChange={(e) => setSelectedNews(e)} />}
                     </div>
                     <div className="news-block-share">
-                        <Link><img src={share} alt="share icon" /></Link>
+                        <Dropdown>
+                            <Dropdown.Toggle className='text-white' variant="transperent" id="share-dropdown">
+                                <img src={share} alt="share icon" />
+                            </Dropdown.Toggle>
+                            <ShareButtons url={`/news/details/${selectedNews?.id}`} title={selectedNews?.title || selectedNews?.content?.split(' ', 10).join(' ')} />
+                        </Dropdown>
                     </div>
                     <div className="news-block-newspaper">
                         <img src={selectedNews?.resource?.logo} alt="newspaper icon" />
